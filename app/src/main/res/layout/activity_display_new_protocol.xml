@@ -7,4 +7,51 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="rhdr.afrl.trialsurvey.DisplayNewProtocolActivity">
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtProtocolID"
+        android:layout_marginTop="100dp"
+        android:inputType="text"
+        android:hint="Enter New Protocol ID"
+        android:textSize="40sp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/intNumSubjects"
+        android:layout_below="@+id/txtProtocolID"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:editable="true"
+        android:enabled="true"
+        android:textSize="40sp"
+        android:hint="Enter Number of Subjects" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/intNumShotcode"
+        android:layout_below="@+id/intNumSubjects"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="94dp"
+        android:enabled="true"
+        android:textSize="40sp"
+        android:hint="Enter Number of Shotcodes" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btnSave"
+        android:id="@+id/btnSave"
+        android:textSize="40sp"
+        android:enabled="true"
+        android:textAlignment="center"
+        android:height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

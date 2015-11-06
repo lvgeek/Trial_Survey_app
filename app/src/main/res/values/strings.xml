@@ -4,4 +4,5 @@
     <string name="btnNewProtocol">New Protocol</string>
     <string name="btnSettings">Settings</string>
     <string name="title_activity_display_new_protocol">New Protocol</string>
+    <string name="btnSave">Save</string>
 </resources>
