@@ -12,9 +12,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-    /** Called when the user clicks the New Protocal button */
-    public void showNewProto(View view) {
-        Intent intent = new Intent(this, DisplayNewProtocolActivity.class);
+    /** Called when the user clicks the Settings button */
+    public void showSettings(View view) {
+        Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
 

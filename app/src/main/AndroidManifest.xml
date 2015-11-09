@@ -17,6 +17,8 @@ make
         </activity>
         <activity android:name=".DisplayNewProtocolActivity" >
         </activity>
+        <activity android:name=".SettingsActivity" >
+        </activity>
     </application>
 
 </manifest>
