@@ -2,7 +2,9 @@
     <string name="app_name"><large>AFRL/RHDR Trial Survey</large></string>
     <string name="btnRunProtocol">Run Protocol</string>
     <string name="btnNewProtocol">New Protocol</string>
+    <string name="btnEditProtocol">Edit Protocol</string>
     <string name="btnSettings">Settings</string>
-    <string name="title_activity_display_new_protocol">New Protocol</string>
+    <string name="title_activity_display_new_protocol">Add New Protocol</string>
+    <string name="title_activity_display_edit_protocol">Edit Protocol Settings</string>
     <string name="btnSave">Save</string>
 </resources>

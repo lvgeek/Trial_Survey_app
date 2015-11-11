@@ -20,6 +20,19 @@
         android:height="100dp"
         android:onClick="showNewProto"
         />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btnEditProtocol"
+        android:id="@+id/btnEditProtocol"
+        android:layout_below="@+id/btnNewProtocol"
+        android:layout_marginTop="75dp"
+        android:textSize="40sp"
+        android:enabled="true"
+        android:textAlignment="center"
+        android:height="100dp"
+        android:onClick="showEditProto"
+        />
 
 
 </RelativeLayout>

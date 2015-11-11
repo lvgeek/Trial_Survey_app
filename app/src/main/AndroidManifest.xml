@@ -19,6 +19,8 @@ make
         </activity>
         <activity android:name=".SettingsActivity" >
         </activity>
+        <activity android:name=".DisplayEditProtocolActivity" >
+        </activity>
     </application>
 
 </manifest>

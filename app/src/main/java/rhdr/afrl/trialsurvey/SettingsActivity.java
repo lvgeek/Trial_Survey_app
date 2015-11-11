@@ -18,5 +18,10 @@ public class SettingsActivity extends AppCompatActivity {
         Intent intent = new Intent(this, DisplayNewProtocolActivity.class);
         startActivity(intent);
     }
+    /** Called when the user clicks the EditProtocol button */
+    public void showEditProto(View view) {
+        Intent intent = new Intent(this, DisplayEditProtocolActivity.class);
+        startActivity(intent);
+    }
 
 }
