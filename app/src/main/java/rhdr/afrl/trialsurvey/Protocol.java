@@ -55,7 +55,7 @@ public class Protocol {
     }
 
     // setting numSubjects
-    public void setPhoneNumber(String numSubjects){
+    public void setnumSubjects(String numSubjects){
         this._numSubjects = numSubjects;
     }
 

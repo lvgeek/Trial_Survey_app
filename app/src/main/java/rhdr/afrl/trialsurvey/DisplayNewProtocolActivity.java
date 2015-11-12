@@ -9,5 +9,14 @@ public class DisplayNewProtocolActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_new_protocol);
+
+        rhdr.afrl.trialsurvey.DBHandler db = new rhdr.afrl.trialsurvey.DBHandler(this);
+
+
+
+
+
+
+
     }
 }
