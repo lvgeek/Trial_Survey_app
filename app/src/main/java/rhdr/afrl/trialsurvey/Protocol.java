@@ -1,6 +1,3 @@
-/**
- * Created by dave on 11/11/15.
- */
 package rhdr.afrl.trialsurvey;
 
 public class Protocol {
@@ -13,8 +10,8 @@ public class Protocol {
 
     // Empty constructor
     public Protocol(){
-
     }
+
     // constructor
     public Protocol(int id, String name, String _numSubjects, String _numShotcodes){
         this._id = id;
