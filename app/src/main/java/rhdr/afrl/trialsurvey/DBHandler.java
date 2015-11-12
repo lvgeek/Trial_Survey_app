@@ -58,8 +58,9 @@ public class DBHandler extends SQLiteOpenHelper {
      */
 
     // Adding new Protocol
-    void addProtocol(Protocol protocol) {
+    public long addProtocol(Protocol protocol) {
         SQLiteDatabase db = this.getWritableDatabase();
+        long flag = 0;
 
         ContentValues values = new ContentValues();
         values.put(KEY_NAME, protocol.getName()); // Protocol Name
@@ -67,8 +68,9 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(KEY_NUMSUBJECTS, protocol.getnumShotcodes()); // Protocol numShotcodes
 
         // Inserting Row
-        db.insert(TABLE_PROTOCOL, null, values);
+        flag = db.insert(TABLE_PROTOCOL, null, values);
         db.close(); // Closing database connection
+        return flag;
     }
 
     // Getting single protocol
@@ -114,7 +116,7 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     // Updating single protocol
-    public int updateprotocol(Protocol protocol) {
+    public int updateProtocol(Protocol protocol) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -127,7 +129,7 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     // Deleting single protocol
-    public void deleteprotocol(Protocol protocol) {
+    public void deleteProtocol(Protocol protocol) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_PROTOCOL, KEY_ID + " = ?",
                 new String[] { String.valueOf(protocol.getID()) });
@@ -137,13 +139,15 @@ public class DBHandler extends SQLiteOpenHelper {
 
     // Getting Protocols Count
     public int getProtocolsCount() {
+        int intCount = -1;
         String countQuery = "SELECT  * FROM " + TABLE_PROTOCOL;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(countQuery, null);
+        intCount = cursor.getCount();
         cursor.close();
 
         // return count
-        return cursor.getCount();
+        return intCount;
     }
 
 }
