@@ -1,20 +1,25 @@
 package rhdr.afrl.trialsurvey;
 
 import java.util.List;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-public class DisplayEditProtocolActivity extends AppCompatActivity {
+import rhdr.afrl.trialsurvey.Protocol;
+import rhdr.afrl.trialsurvey.DBHandler;
+
+public class DisplayEditProtocolActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     // define elements
     Spinner spnrProdocolID;
     EditText txtProtocolID;
     EditText intNumSubjects;
     EditText intNumShotcode;
-    DBHandler db;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,28 +32,36 @@ public class DisplayEditProtocolActivity extends AppCompatActivity {
         intNumShotcode = (EditText) findViewById(R.id.intNumShotcode);
 
         // Spinner click listener
-       // spnrProdocolID.setOnItemSelectedListener(this);
+        spnrProdocolID.setOnItemSelectedListener(this);
 
         // Loading spinner data from database
         loadSpinnerData();
 
     }
+    @Override
+    public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+
+        Protocol selected = (Protocol) parentView.getItemAtPosition(position);
+        intNumSubjects.setText(selected.getnumSubjects());
+        intNumShotcode.setText(selected.getnumShotcodes());
+
+    }
+    @Override
+    public void onNothingSelected(AdapterView<?> parentView) {
+        intNumSubjects.setText("");
+        intNumShotcode.setText( "");
+    }
 
     // Function to load the spinner data from SQLite database
     private void loadSpinnerData() {
-
-        // Spinner Drop down elements
+        ProtocolSpinnerAdapter protocolAdapter;
+        DBHandler db = new DBHandler(getApplicationContext());
         List<Protocol> protocolList = db.getAllProtocols();
-
-        // Creating adapter for spinner
-        ArrayAdapter<Protocol> dataAdapter = new ArrayAdapter<>(this,
+        protocolAdapter = new ProtocolSpinnerAdapter(DisplayEditProtocolActivity.this,
                 android.R.layout.simple_spinner_item, protocolList);
+        spnrProdocolID.setAdapter(protocolAdapter);
 
-        // Drop down layout style - list view with radio button
-        dataAdapter
-                .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        protocolAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        // attaching data adapter to spinner
-        spnrProdocolID.setAdapter(dataAdapter);
-    }
+   }
 }

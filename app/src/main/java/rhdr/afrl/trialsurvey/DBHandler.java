@@ -1,6 +1,3 @@
-/**
- * Created by dave on 11/11/15.
- */
 package rhdr.afrl.trialsurvey;
 
         import java.util.ArrayList;
@@ -85,6 +82,9 @@ public class DBHandler extends SQLiteOpenHelper {
 
         Protocol protocol = new Protocol(Integer.parseInt(cursor.getString(0)),
                 cursor.getString(1), cursor.getString(2), cursor.getString(3));
+
+        cursor.close();
+        db.close();
         // return protocol
         return protocol;
     }
@@ -111,6 +111,8 @@ public class DBHandler extends SQLiteOpenHelper {
             } while (cursor.moveToNext());
         }
 
+        cursor.close();
+        db.close();
         // return protocol list
         return protocolList;
     }
@@ -145,7 +147,7 @@ public class DBHandler extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(countQuery, null);
         intCount = cursor.getCount();
         cursor.close();
-
+        db.close();
         // return count
         return intCount;
     }
