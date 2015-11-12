@@ -36,7 +36,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String CREATE_PROTOCOL_TABLE = "CREATE TABLE " + TABLE_PROTOCOL + "("
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
-                + KEY_NUMSUBJECTS + " TEXT" + KEY_NUMSHOTCODES + " TEXT" + ")";
+                + KEY_NUMSUBJECTS + " TEXT," + KEY_NUMSHOTCODES + " TEXT" + ")";
         db.execSQL(CREATE_PROTOCOL_TABLE);
     }
 
@@ -62,7 +62,7 @@ public class DBHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(KEY_NAME, protocol.getName()); // Protocol Name
         values.put(KEY_NUMSUBJECTS, protocol.getnumSubjects()); // Protocol numSubjects
-        values.put(KEY_NUMSUBJECTS, protocol.getnumShotcodes()); // Protocol numShotcodes
+        values.put(KEY_NUMSHOTCODES, protocol.getnumShotcodes()); // Protocol numShotcodes
 
         // Inserting Row
         flag = db.insert(TABLE_PROTOCOL, null, values);
