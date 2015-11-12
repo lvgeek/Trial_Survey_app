@@ -23,7 +23,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txtProtocolID"
-        android:layout_marginTop="100dp"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="60dp"
         android:inputType="text"
         android:hint="Enter New Protocol ID"
         android:textSize="40sp" />
