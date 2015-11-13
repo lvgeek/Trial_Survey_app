@@ -118,7 +118,8 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     // Updating single protocol
-    public int updateProtocol(Protocol protocol) {
+    public long updateProtocol(Protocol protocol) {
+        long flag = 0;
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -126,8 +127,12 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(KEY_NUMSUBJECTS, protocol.getnumSubjects());
         values.put(KEY_NUMSHOTCODES, protocol.getnumShotcodes());
         // updating row
-        return db.update(TABLE_PROTOCOL, values, KEY_ID + " = ?",
+        flag = db.update(TABLE_PROTOCOL, values, "_id = ?",
                 new String[] { String.valueOf(protocol.getID()) });
+
+        db.close();
+        // return number of rows updated should be 1
+        return flag;
     }
 
     // Deleting single protocol

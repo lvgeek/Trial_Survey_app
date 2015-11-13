@@ -49,7 +49,7 @@ public class ProtocolSpinnerAdapter extends ArrayAdapter<Protocol> {
         //This is for the first item before dropdown or default state.
         TextView label = new TextView(mContext);
         label.setTextColor(Color.BLACK);
-        label.setTextSize(18);
+        label.setTextSize(22);
         label.setText(" " + mValues.get(position).getName());
         label.setHeight(50);
         label.setGravity(Gravity.LEFT | Gravity.CENTER );
@@ -63,7 +63,7 @@ public class ProtocolSpinnerAdapter extends ArrayAdapter<Protocol> {
         // beneath it
         TextView label = new TextView(mContext);
         label.setTextColor(Color.BLACK);
-        label.setTextSize(18);
+        label.setTextSize(22);
         label.setText(" " + mValues.get(position).getName());
         label.setHeight(70);
         label.setGravity(Gravity.LEFT | Gravity.CENTER );

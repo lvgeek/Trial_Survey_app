@@ -58,7 +58,7 @@ public class Protocol {
 
     // getting numShotcodes
     public String getnumShotcodes(){
-        return this._numSubjects;
+        return this._numShotcodes;
     }
 
     // setting numShotcodes

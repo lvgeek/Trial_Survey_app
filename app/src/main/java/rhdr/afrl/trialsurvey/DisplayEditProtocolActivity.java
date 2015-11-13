@@ -8,13 +8,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.Spinner;
-
-import rhdr.afrl.trialsurvey.Protocol;
-import rhdr.afrl.trialsurvey.DBHandler;
+import android.widget.Toast;
 
 public class DisplayEditProtocolActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     // define elements
+    int _ID;
     Spinner spnrProdocolID;
     EditText txtProtocolID;
     EditText intNumSubjects;
@@ -28,8 +27,10 @@ public class DisplayEditProtocolActivity extends AppCompatActivity implements Ad
 
         // link elements
         spnrProdocolID = (Spinner) findViewById(R.id.spnrProdocolID);
+        txtProtocolID =(EditText) findViewById(R.id.txtProtocolID);
         intNumSubjects =(EditText) findViewById(R.id.intNumSubjects);
         intNumShotcode = (EditText) findViewById(R.id.intNumShotcode);
+
 
         // Spinner click listener
         spnrProdocolID.setOnItemSelectedListener(this);
@@ -42,12 +43,15 @@ public class DisplayEditProtocolActivity extends AppCompatActivity implements Ad
     public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
 
         Protocol selected = (Protocol) parentView.getItemAtPosition(position);
+        _ID = selected.getID();
+        txtProtocolID.setText(selected.getName());
         intNumSubjects.setText(selected.getnumSubjects());
         intNumShotcode.setText(selected.getnumShotcodes());
 
     }
     @Override
     public void onNothingSelected(AdapterView<?> parentView) {
+        txtProtocolID.setText("");
         intNumSubjects.setText("");
         intNumShotcode.setText( "");
     }
@@ -63,5 +67,34 @@ public class DisplayEditProtocolActivity extends AppCompatActivity implements Ad
 
         protocolAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-   }
+    }
+
+    public void SavebtnClick(View view){
+
+        DBHandler db = new DBHandler(this);
+        if("".equals(txtProtocolID.getText().toString()) || "".equals(intNumSubjects.getText().toString()) || "".equals(intNumShotcode.getText().toString()))
+        {
+            Toast toast = Toast.makeText(getApplicationContext(), "Sorry, you must input Protocol ID, Number of Subjects, and Number of Shotcodes!", Toast.LENGTH_LONG);
+            toast.show();
+        }
+        else
+        {
+            long flag = 0;
+            Protocol protocol = new Protocol(_ID,txtProtocolID.getText().toString(),intNumSubjects.getText().toString(),intNumShotcode.getText().toString());
+            flag = db.updateProtocol(protocol);
+            if(flag == 1)
+            {
+                Toast toast = Toast.makeText(getApplicationContext(), "You have successful updated this record in the database! ", Toast.LENGTH_LONG);
+                toast.show();
+                //close the activity
+                finish();
+            }
+            else
+            {
+                Toast toast = Toast.makeText(getApplicationContext(), "An error occured when updating this record in the database!", Toast.LENGTH_LONG);
+                toast.show();
+                return;
+            }
+        }
+    }
 }

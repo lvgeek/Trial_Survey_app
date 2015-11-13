@@ -12,6 +12,9 @@
     <string name="hint_new_protocol">Enter New Protocol ID</string>
     <string name="hint_new_numSubjects">Enter Number of Subjects</string>
     <string name="hint_new_numShotcodes">Enter Number of Shotcodes</string>
+    <string name="hint_protocol">Protocol ID</string>
+    <string name="hint_numSubjects">Number of Subjects</string>
+    <string name="hint_numShotcodes">Number of Shotcodes</string>
     <string name="ProtocolID">Protocol ID:</string>
     <string name="Subjects"># Subjects:</string>
     <string name="Shotcodes"># Shotcodes:</string>
