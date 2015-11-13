@@ -13,16 +13,16 @@ public class Protocol {
     }
 
     // constructor
-    public Protocol(int id, String name, String _numSubjects, String _numShotcodes){
+    public Protocol(int id, String _name, String _numSubjects, String _numShotcodes){
         this._id = id;
-        this._name = name;
+        this._name = _name;
         this._numSubjects = _numSubjects;
         this._numShotcodes =  _numShotcodes;
     }
 
     // constructor
-    public Protocol(String name, String _numSubjects, String _numShotcodes){
-        this._name = name;
+    public Protocol(String _name, String _numSubjects, String _numShotcodes){
+        this._name = _name;
         this._numSubjects = _numSubjects;
         this._numShotcodes =  _numShotcodes;
     }
@@ -64,5 +64,9 @@ public class Protocol {
     // setting numShotcodes
     public void setnumShotcodes(String numShotcodes){
         this._numShotcodes = numShotcodes;
+    }
+
+    public String toString(){
+        return this._name;
     }
 }

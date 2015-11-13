@@ -23,5 +23,9 @@ public class SettingsActivity extends AppCompatActivity {
         Intent intent = new Intent(this, DisplayEditProtocolActivity.class);
         startActivity(intent);
     }
-
+    /** Called when the user clicks the ListProtocol button */
+    public void showListProto(View view) {
+        Intent intent = new Intent(this, DisplaySQLite.class);
+        startActivity(intent);
+    }
 }

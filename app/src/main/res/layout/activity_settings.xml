@@ -44,5 +44,20 @@
         android:onClick="showEditProto"
         />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btnListProtocols"
+        android:id="@+id/btnListProtocol"
+        android:layout_marginTop="60dp"
+        android:textSize="40sp"
+        android:enabled="true"
+        android:textAlignment="center"
+        android:height="100dp"
+        android:onClick="showListProto"
+        android:layout_below="@+id/btnEditProtocol"
+        android:layout_centerHorizontal="true"
+        android:nestedScrollingEnabled="true" />
+
 
 </RelativeLayout>
