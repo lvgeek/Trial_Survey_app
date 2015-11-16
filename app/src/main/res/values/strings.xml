@@ -5,20 +5,30 @@
     <string name="btnEditProtocol">Edit Protocol</string>
     <string name="btnSettings">Settings</string>
     <string name="btnListProtocols">List Prototols</string>
+    <string name="btnBackupdb">Copy Database to Downloads Folder</string>
     <string name="btnSave">Save</string>
     <string name="btnClose">Close</string>
     <string name="title_activity_display_new_protocol">Add New Protocol</string>
     <string name="title_activity_display_edit_protocol">Edit Protocol Settings</string>
+    <string name="title_display_protocols">Protocol List</string>
     <string name="title_Settings">Settings</string>
     <string name="title_MainMenu">Trial Survey App</string>
     <string name="hint_new_protocol">Enter New Protocol ID</string>
     <string name="hint_new_numSubjects">Enter Number of Subjects</string>
     <string name="hint_new_numShotcodes">Enter Number of Shotcodes</string>
+    <string name="hint_new_Question">Enter New Question</string>
+    <string name="hint_new_minText">Enter New Text at Min</string>
+    <string name="hint_new_maxText">Enter New Text at Max</string>
     <string name="hint_protocol">Protocol ID</string>
     <string name="hint_numSubjects">Number of Subjects</string>
     <string name="hint_numShotcodes">Number of Shotcodes</string>
+    <string name="hint_Question">Question</string>
+    <string name="hint_minText">Text at Min</string>
+    <string name="hint_maxText">Text at Max</string>
     <string name="ProtocolID">Protocol ID:</string>
     <string name="Subjects"># Subjects:</string>
     <string name="Shotcodes"># Shotcodes:</string>
-
+    <string name="Question">Survey Question:</string>
+    <string name="minText">Min Text:</string>
+    <string name="maxText">Max Text:</string>
 </resources>

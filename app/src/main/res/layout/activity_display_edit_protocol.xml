@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/spnrProdocolID"
         android:clickable="true"
-        android:textSize="40sp"
+        android:textSize="20sp"
         android:layout_marginTop="60dp"
         android:spinnerMode="dropdown"
         android:background="@color/button_material_light" />
@@ -35,7 +35,7 @@
         android:id="@+id/txtProtocolID"
         android:inputType="text"
         android:hint="@string/hint_protocol"
-        android:textSize="40sp"
+        android:textSize="20sp"
         android:enabled="true"
         android:editable="true"
         android:layout_marginTop="80dp"
@@ -51,11 +51,11 @@
         android:layout_centerHorizontal="true"
         android:editable="true"
         android:enabled="true"
-        android:textSize="40sp"
+        android:textSize="20sp"
         android:hint="@string/hint_numSubjects"
         android:clickable="false"
         android:layout_toRightOf="@+id/textView3"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="30dp"
         android:layout_below="@+id/txtProtocolID" />
 
     <EditText
@@ -66,9 +66,9 @@
         android:id="@+id/intNumShotcode"
         android:layout_below="@+id/intNumSubjects"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="30dp"
         android:enabled="true"
-        android:textSize="40sp"
+        android:textSize="20sp"
         android:hint="@string/hint_numShotcodes"
         android:editable="true"
         android:layout_toRightOf="@+id/textView4" />
@@ -78,7 +78,7 @@
         android:layout_height="wrap_content"
         android:text="@string/btnSave"
         android:id="@+id/btnSave"
-        android:textSize="40sp"
+        android:textSize="20sp"
         android:enabled="true"
         android:textAlignment="center"
         android:height="100dp"
@@ -93,7 +93,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/ProtocolID"
         android:id="@+id/textView2"
-        android:textSize="40sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:layout_marginRight="5dp"
         android:layout_alignParentStart="true"
@@ -106,7 +106,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/Subjects"
         android:id="@+id/textView3"
-        android:textSize="40sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:layout_alignParentStart="true"
         android:layout_alignBaseline="@+id/intNumSubjects"
@@ -120,10 +120,88 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/Shotcodes"
         android:id="@+id/textView4"
-        android:textSize="40sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:layout_alignParentStart="true"
         android:layout_alignBaseline="@+id/intNumShotcode"
         android:layout_marginRight="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/Question"
+        android:id="@+id/textViewQuestion"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginRight="5dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignBaseline="@+id/txtQuestion" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtQuestion"
+        android:inputType="text"
+        android:hint="@string/hint_new_Question"
+        android:textSize="20sp"
+        android:enabled="true"
+        android:editable="true"
+        android:layout_toRightOf="@+id/textViewQuestion"
+        android:layout_below="@+id/intNumShotcode"
+        android:layout_marginTop="30dp"
+        android:layout_alignParentStart="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/minText"
+        android:id="@+id/textViewMin"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginRight="5dp"
+        android:layout_alignParentStart="false"
+        android:layout_alignBaseline="@+id/txtMin" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtMin"
+        android:inputType="text"
+        android:hint="@string/hint_new_minText"
+        android:textSize="20sp"
+        android:enabled="true"
+        android:editable="true"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentLeft="false"
+        android:layout_marginTop="30dp"
+        android:layout_toRightOf="@+id/textViewMin"
+        android:layout_below="@+id/txtQuestion" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/maxText"
+        android:id="@+id/textViewMax"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginRight="5dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignBaseline="@+id/txtMax" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtMax"
+        android:inputType="text"
+        android:hint="@string/hint_new_maxText"
+        android:textSize="20sp"
+        android:enabled="true"
+        android:editable="true"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/txtMin"
+        android:layout_toRightOf="@+id/textViewMax" />
 
 </RelativeLayout>

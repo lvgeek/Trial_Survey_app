@@ -5,26 +5,36 @@ public class Protocol {
     //private variables
     int _id;
     String _name;
-    String _numSubjects;
-    String _numShotcodes;
+    int _numSubjects;
+    int _numShotcodes;
+    String _Question1;
+    String _Question1_min;
+    String _Question1_max;
 
     // Empty constructor
     public Protocol(){
     }
 
     // constructor
-    public Protocol(int id, String _name, String _numSubjects, String _numShotcodes){
+    public Protocol(int id, String name, int numSubjects, int numShotcodes, String question1, String question1_min, String question1_max){
         this._id = id;
-        this._name = _name;
-        this._numSubjects = _numSubjects;
-        this._numShotcodes =  _numShotcodes;
-    }
+        this._name = name;
+        this._numSubjects = numSubjects;
+        this._numShotcodes =  numShotcodes;
+        this._Question1 = question1;
+        this._Question1_min = question1_min;
+        this._Question1_max = question1_max;
 
+
+    }
     // constructor
-    public Protocol(String _name, String _numSubjects, String _numShotcodes){
-        this._name = _name;
-        this._numSubjects = _numSubjects;
-        this._numShotcodes =  _numShotcodes;
+    public Protocol(String name, int numSubjects, int numShotcodes, String question1, String question1_min, String question1_max){
+        this._name = name;
+        this._numSubjects = numSubjects;
+        this._numShotcodes = numShotcodes;
+        this._Question1 = question1;
+        this._Question1_min = question1_min;
+        this._Question1_max = question1_max;
     }
     // getting ID
     public int getID(){
@@ -47,26 +57,56 @@ public class Protocol {
     }
 
     // getting numSubjects
-    public String getnumSubjects(){
+    public int getnumSubjects(){
         return this._numSubjects;
     }
 
     // setting numSubjects
-    public void setnumSubjects(String numSubjects){
+    public void setnumSubjects(int numSubjects){
         this._numSubjects = numSubjects;
     }
 
     // getting numShotcodes
-    public String getnumShotcodes(){
+    public int getnumShotcodes(){
         return this._numShotcodes;
     }
 
     // setting numShotcodes
-    public void setnumShotcodes(String numShotcodes){
+    public void setnumShotcodes(int numShotcodes){
         this._numShotcodes = numShotcodes;
     }
 
     public String toString(){
         return this._name;
+    }
+
+    // getting question1
+    public String getquestion1(){
+        return this._Question1;
+    }
+
+    // setting question1
+    public void setquestion1(String question1){
+        this._Question1 = question1;
+    }
+
+    // getting question1_min
+    public String getquestion1_min(){
+        return this._Question1_min;
+    }
+
+    // setting question1_min
+    public void setquestion1_min(String question1_min){
+        this._Question1_min = question1_min;
+    }
+
+    // getting question1_max
+    public String getquestion1_max(){
+        return this._Question1_max;
+    }
+
+    // setting question1_max
+    public void setquestion1_max(String question1_max){
+        this._Question1_max = question1_max;
     }
 }

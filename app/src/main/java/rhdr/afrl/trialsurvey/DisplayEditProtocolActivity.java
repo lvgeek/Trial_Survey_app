@@ -18,6 +18,9 @@ public class DisplayEditProtocolActivity extends AppCompatActivity implements Ad
     EditText txtProtocolID;
     EditText intNumSubjects;
     EditText intNumShotcode;
+    EditText Question1;
+    EditText Question1_min;
+    EditText Question1_max;
 
 
     @Override
@@ -30,6 +33,9 @@ public class DisplayEditProtocolActivity extends AppCompatActivity implements Ad
         txtProtocolID =(EditText) findViewById(R.id.txtProtocolID);
         intNumSubjects =(EditText) findViewById(R.id.intNumSubjects);
         intNumShotcode = (EditText) findViewById(R.id.intNumShotcode);
+        Question1 = (EditText) findViewById(R.id.txtQuestion);
+        Question1_min = (EditText) findViewById(R.id.txtMin);
+        Question1_max = (EditText) findViewById(R.id.txtMax);
 
 
         // Spinner click listener
@@ -45,15 +51,20 @@ public class DisplayEditProtocolActivity extends AppCompatActivity implements Ad
         Protocol selected = (Protocol) parentView.getItemAtPosition(position);
         _ID = selected.getID();
         txtProtocolID.setText(selected.getName());
-        intNumSubjects.setText(selected.getnumSubjects());
-        intNumShotcode.setText(selected.getnumShotcodes());
-
+        intNumSubjects.setText(String.valueOf(selected.getnumSubjects()));
+        intNumShotcode.setText(String.valueOf(selected.getnumShotcodes()));
+        Question1.setText(selected.getquestion1());
+        Question1_min.setText(selected.getquestion1_min());
+        Question1_max.setText(selected.getquestion1_max());
     }
     @Override
     public void onNothingSelected(AdapterView<?> parentView) {
         txtProtocolID.setText("");
         intNumSubjects.setText("");
         intNumShotcode.setText( "");
+        Question1.setText("");
+        Question1_min.setText("");
+        Question1_max.setText("");
     }
 
     // Function to load the spinner data from SQLite database
@@ -80,7 +91,7 @@ public class DisplayEditProtocolActivity extends AppCompatActivity implements Ad
         else
         {
             long flag = 0;
-            Protocol protocol = new Protocol(_ID,txtProtocolID.getText().toString(),intNumSubjects.getText().toString(),intNumShotcode.getText().toString());
+            Protocol protocol = new Protocol(txtProtocolID.getText().toString(),Integer.parseInt(intNumSubjects.getText().toString()), Integer.parseInt(intNumShotcode.getText().toString()),Question1.getText().toString(),Question1_min.getText().toString(),Question1_max.getText().toString());
             flag = db.updateProtocol(protocol);
             if(flag == 1)
             {

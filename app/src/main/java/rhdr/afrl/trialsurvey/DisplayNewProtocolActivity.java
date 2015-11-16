@@ -11,6 +11,10 @@ public class DisplayNewProtocolActivity extends AppCompatActivity {
     EditText txtProtocolID;
     EditText txtNumSubjects;
     EditText txtNumShotcode;
+    EditText Question1;
+    EditText Question1_min;
+    EditText Question1_max;
+
     DBHandler db;
 
     @Override
@@ -20,12 +24,15 @@ public class DisplayNewProtocolActivity extends AppCompatActivity {
         txtProtocolID = (EditText) findViewById(R.id.txtProtocolID);
         txtNumSubjects = (EditText) findViewById(R.id.intNumSubjects);
         txtNumShotcode = (EditText) findViewById(R.id.intNumShotcode);
+        Question1 = (EditText) findViewById(R.id.txtQuestion);
+        Question1_min = (EditText) findViewById(R.id.txtMin);
+        Question1_max = (EditText) findViewById(R.id.txtMax);
         db = new DBHandler(this);
     }
 
     public void SavebtnClick(View view){
 
-        if("".equals(txtProtocolID.getText().toString()) || "".equals(txtNumSubjects.getText().toString()) || "".equals(txtNumShotcode.getText().toString()))
+        if("".equals(txtProtocolID.getText().toString()) || "".equals(txtNumSubjects.getText().toString()) || "".equals(txtNumShotcode.getText().toString()) || "".equals(Question1.getText().toString()) || "".equals(Question1_min.getText().toString()) || "".equals(Question1_max.getText().toString())   )
         {
             Toast toast = Toast.makeText(getApplicationContext(), "Sorry, you must input Protocol ID, Number of Subjects, and Number of Shotcodes!", Toast.LENGTH_LONG);
             toast.show();
@@ -33,7 +40,7 @@ public class DisplayNewProtocolActivity extends AppCompatActivity {
         else
         {
             long flag = 0;
-            Protocol protocol = new Protocol(txtProtocolID.getText().toString(),txtNumSubjects.getText().toString(),txtNumShotcode.getText().toString());
+            Protocol protocol = new Protocol(txtProtocolID.getText().toString(),Integer.parseInt(txtNumSubjects.getText().toString()), Integer.parseInt(txtNumShotcode.getText().toString()),Question1.getText().toString(),Question1_min.getText().toString(),Question1_max.getText().toString());
             flag = db.addProtocol(protocol);
             if(flag != -1)
             {
@@ -43,6 +50,9 @@ public class DisplayNewProtocolActivity extends AppCompatActivity {
                 txtProtocolID.setText("");
                 txtNumSubjects.setText("");
                 txtNumShotcode.setText("");
+                Question1.setText("");
+                Question1_min.setText("");
+                Question1_max.setText("");
                 return;
             }
             else

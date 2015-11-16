@@ -9,6 +9,7 @@ package rhdr.afrl.trialsurvey;
         import android.database.sqlite.SQLiteDatabase;
         import android.database.sqlite.SQLiteOpenHelper;
 
+
 public class DBHandler extends SQLiteOpenHelper {
 
     // All Static variables
@@ -36,7 +37,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String CREATE_PROTOCOL_TABLE = "CREATE TABLE " + TABLE_PROTOCOL + "("
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
-                + KEY_NUMSUBJECTS + " TEXT," + KEY_NUMSHOTCODES + " TEXT" + ")";
+                + KEY_NUMSUBJECTS + " INTEGER," + KEY_NUMSHOTCODES + " INTEGER" + ")";
         db.execSQL(CREATE_PROTOCOL_TABLE);
     }
 
@@ -81,7 +82,7 @@ public class DBHandler extends SQLiteOpenHelper {
             cursor.moveToFirst();
 
         Protocol protocol = new Protocol(Integer.parseInt(cursor.getString(0)),
-                cursor.getString(1), cursor.getString(2), cursor.getString(3));
+                cursor.getString(1), Integer.parseInt(cursor.getString(2)), Integer.parseInt(cursor.getString(3)));
 
         cursor.close();
         db.close();
@@ -104,8 +105,8 @@ public class DBHandler extends SQLiteOpenHelper {
                 Protocol protocol = new Protocol();
                 protocol.setID(Integer.parseInt(cursor.getString(0)));
                 protocol.setName(cursor.getString(1));
-                protocol.setnumSubjects(cursor.getString(2));
-                protocol.setnumShotcodes(cursor.getString(3));
+                protocol.setnumSubjects(Integer.parseInt(cursor.getString(2)));
+                protocol.setnumShotcodes(Integer.parseInt(cursor.getString(3)));
                 // Adding protocol to list
                 protocolList.add(protocol);
             } while (cursor.moveToNext());
@@ -139,7 +140,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public void deleteProtocol(Protocol protocol) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_PROTOCOL, KEY_ID + " = ?",
-                new String[] { String.valueOf(protocol.getID()) });
+                new String[]{String.valueOf(protocol.getID())});
         db.close();
     }
 
@@ -156,5 +157,4 @@ public class DBHandler extends SQLiteOpenHelper {
         // return count
         return intCount;
     }
-
 }
