@@ -27,6 +27,9 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String KEY_NAME = "name";
     private static final String KEY_NUMSUBJECTS = "numSubjects";
     private static final String KEY_NUMSHOTCODES = "numShotcodes";
+    private static final String KEY_QUESTION1 = "Question1";
+    private static final String KEY_QUESTION1_MIN = "Question1_min";
+    private static final String KEY_QUESTION1_MAX = "Question1_max";
 
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -37,7 +40,8 @@ public class DBHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String CREATE_PROTOCOL_TABLE = "CREATE TABLE " + TABLE_PROTOCOL + "("
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
-                + KEY_NUMSUBJECTS + " INTEGER," + KEY_NUMSHOTCODES + " INTEGER" + ")";
+                + KEY_NUMSUBJECTS + " INTEGER," + KEY_NUMSHOTCODES + " INTEGER" + KEY_QUESTION1 + "TEXT,"
+                + KEY_QUESTION1_MIN + "TEXT," +KEY_QUESTION1_MAX + "TEXT," +")";
         db.execSQL(CREATE_PROTOCOL_TABLE);
     }
 
