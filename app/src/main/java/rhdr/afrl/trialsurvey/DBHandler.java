@@ -1,68 +1,78 @@
 package rhdr.afrl.trialsurvey;
 
-        import java.util.ArrayList;
-        import java.util.List;
-
         import android.content.ContentValues;
         import android.content.Context;
         import android.database.Cursor;
         import android.database.sqlite.SQLiteDatabase;
         import android.database.sqlite.SQLiteOpenHelper;
 
+        import java.util.ArrayList;
+        import java.util.List;
+
 
 public class DBHandler extends SQLiteOpenHelper {
 
     // All Static variables
-    // Database Version
     private static final int DATABASE_VERSION = 1;
 
-    // Database Name
     private static final String DATABASE_NAME = "TrialSurvey";
 
-    // Protocol table name
-    private static final String TABLE_PROTOCOL = "protocol";
+    private static final String TABLE_PROTOCOL = "Protocol";
+    private static final String TABLE_PROTOQUESTIONS = "ProtoQuestions";
 
-    // Protocol Table Columns namesrial
-    private static final String KEY_ID = "_id";
+    private static final String KEY_ID = "id";
     private static final String KEY_NAME = "name";
     private static final String KEY_NUMSUBJECTS = "numSubjects";
     private static final String KEY_NUMSHOTCODES = "numShotcodes";
-    private static final String KEY_QUESTION1 = "Question1";
-    private static final String KEY_QUESTION1_MIN = "Question1_min";
-    private static final String KEY_QUESTION1_MAX = "Question1_max";
 
-    public DBHandler(Context context) {
+    private static final String KEY_PROTOCOL_ID = "Protocol_id";
+    private static final String KEY_QUESTION = "Question";
+    private static final String KEY_QUESTION_MIN = "Question_min";
+    private static final String KEY_QUESTION_MAX = "Question_max";
+
+
+    private static final String CREATE_PROTOCOL_TABLE = "CREATE TABLE " + TABLE_PROTOCOL + "("
+            + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
+            + KEY_NUMSUBJECTS + " INTEGER," + KEY_NUMSHOTCODES + " INTEGER" + ")";
+
+    private static final String CREATE_PROTOQUESTIONS_TABLE = "CREATE TABLE " + TABLE_PROTOQUESTIONS + "("
+            + KEY_ID + " INTEGER PRIMARY KEY," + KEY_PROTOCOL_ID + " INTEGER,"
+            + "FOREIGN KEY(" + KEY_PROTOCOL_ID + ") REFERENCES "
+            + TABLE_PROTOCOL + "(id) "
+            + KEY_QUESTION + " TEXT," + KEY_QUESTION_MIN + " TEXT," + KEY_QUESTION_MAX + " TEXT" + ")";
+
+     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-    // Creating Tables
+    @Override
+    public void onOpen(SQLiteDatabase db) {
+        super.onOpen(db);
+        if (!db.isReadOnly()) {
+            // Enable foreign key constraints
+            db.execSQL("PRAGMA foreign_keys=ON;");
+        }
+    }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_PROTOCOL_TABLE = "CREATE TABLE " + TABLE_PROTOCOL + "("
-                + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
-                + KEY_NUMSUBJECTS + " INTEGER," + KEY_NUMSHOTCODES + " INTEGER" + KEY_QUESTION1 + "TEXT,"
-                + KEY_QUESTION1_MIN + "TEXT," +KEY_QUESTION1_MAX + "TEXT," +")";
         db.execSQL(CREATE_PROTOCOL_TABLE);
+        db.execSQL(CREATE_PROTOQUESTIONS_TABLE);
     }
 
-    // Upgrading database
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // Drop older table if existed
+        // on upgrade drop older tables
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_PROTOCOL);
-
-        // Create tables again
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_PROTOQUESTIONS);
+        // create new tables
         onCreate(db);
     }
-
-    /**
-     * All CRUD(Create, Read, Update, Delete) Operations
-     */
 
     // Adding new Protocol
     public long addProtocol(Protocol protocol) {
         SQLiteDatabase db = this.getWritableDatabase();
-        long flag = 0;
+        long flag;
 
         ContentValues values = new ContentValues();
         values.put(KEY_NAME, protocol.getName()); // Protocol Name
@@ -96,7 +106,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     // Getting All Protocols
     public List<Protocol> getAllProtocols() {
-        List<Protocol> protocolList = new ArrayList<Protocol>();
+        List<Protocol> protocolList = new ArrayList<>();
         // Select All Query
         String selectQuery = "SELECT  * FROM " + TABLE_PROTOCOL;
 
@@ -124,7 +134,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     // Updating single protocol
     public long updateProtocol(Protocol protocol) {
-        long flag = 0;
+        long flag;
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -148,10 +158,9 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-
     // Getting Protocols Count
     public int getProtocolsCount() {
-        int intCount = -1;
+        int intCount;
         String countQuery = "SELECT  * FROM " + TABLE_PROTOCOL;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(countQuery, null);
