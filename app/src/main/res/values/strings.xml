@@ -31,4 +31,6 @@
     <string name="Question">Survey Question:</string>
     <string name="minText">Min Text:</string>
     <string name="maxText">Max Text:</string>
+    <string name="action_settings">Settings</string>
+    <string name="logo">AFRL_Logo</string>
 </resources>

@@ -1,6 +1,5 @@
 package rhdr.afrl.trialsurvey;
 
-
 import android.content.Intent;
 import android.os.Environment;
 import android.support.v7.app.ActionBar;
@@ -19,14 +18,13 @@ import java.io.IOException;
 import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 
-
 public class DisplaySQLite extends AppCompatActivity {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_sqlite);
+ /*
         // my_child_toolbar is defined in the layout file
         Toolbar myChildToolbar =
                 (Toolbar) findViewById(R.id.sql_toolbar);
@@ -37,7 +35,7 @@ public class DisplaySQLite extends AppCompatActivity {
 
         // Enable the Up button
         ab.setDisplayHomeAsUpEnabled(true);
-
+*/
         ListView lv = (ListView) findViewById(R.id.listViewProtocol);
 
         DBHandler db = new DBHandler(getApplicationContext());
