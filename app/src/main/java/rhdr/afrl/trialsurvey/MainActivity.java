@@ -46,7 +46,9 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /** Called when the user clicks the Settings button */
+    /**
+     * Called when the user clicks the Settings button
+     */
     public void showSettings(View view) {
         Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
