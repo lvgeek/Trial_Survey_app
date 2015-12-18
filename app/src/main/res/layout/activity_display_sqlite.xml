@@ -1,42 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin"
-                android:paddingTop="@dimen/activity_vertical_margin"
-                android:paddingBottom="@dimen/activity_vertical_margin"
-                tools:context=".DisplaySQLite">
+<android.support.v4.widget.DrawerLayout
 
-    <include
-        android:id="@+id/tool_bar"
-        layout="@layout/tool_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </include>
+    android:id="@+id/DrawerLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:elevation="7dp">
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/listViewProtocol"
-        android:headerDividersEnabled="false"
-        android:layout_alignParentTop="false"
-        android:layout_alignParentStart="false"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/tool_bar"
-        android:layout_above="@+id/btnBackupDB"/>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    xmlns:tools="http://schemas.android.com/tools"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:context=".DisplaySQLite">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/btnBackupdb"
-        android:id="@+id/btnBackupDB"
-        android:textSize="30sp"
-        android:enabled="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="copyAppDbToDownloadFolder" />
+        <include
+            android:id="@+id/tool_bar"
+            layout="@layout/tool_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </include>
 
-</RelativeLayout>
+        <ListView
+            android:id="@+id/listViewProtocol"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_above="@+id/btnBackupDB"
+            android:layout_alignParentStart="false"
+            android:layout_alignParentTop="false"
+            android:layout_below="@+id/tool_bar"
+            android:layout_marginTop="10dp"
+            android:headerDividersEnabled="false"/>
+
+        <Button
+            android:id="@+id/btnBackupDB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:enabled="true"
+            android:onClick="copyAppDbToDownloadFolder"
+            android:text="@string/btnBackupdb"
+            android:textSize="30sp"/>
+
+    </RelativeLayout>
+</android.support.v4.widget.DrawerLayout>
