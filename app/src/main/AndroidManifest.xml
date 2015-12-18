@@ -1,40 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="rhdr.afrl.trialsurvey" >
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-make
+<manifest package="rhdr.afrl.trialsurvey"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    make
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
-        <activity android:name=".MainActivity" >
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".DisplayNewProtocolActivity" >
+        <activity android:name=".DisplayNewProtocolActivity">
         </activity>
-        <activity android:name=".SettingsActivity"
+        <activity
+            android:name=".SettingsActivity"
             android:label="@string/title_Settings"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".MainActivity">
+
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".MainActivity"/>
         </activity>
-        <activity android:name=".DisplayEditProtocolActivity" >
+        <activity android:name=".DisplayEditProtocolActivity">
         </activity>
-        <activity android:name=".DisplaySQLite"
-                  android:label="@string/title_display_protocols"
-                  android:parentActivityName=".MainActivity" >
+        <activity
+            android:name=".DisplaySQLite"
+            android:label="@string/title_display_protocols"
+            android:parentActivityName=".MainActivity">
+
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />>
+                android:value=".MainActivity"/>
+            >
+        </activity>
+        <activity
+            android:name=".RunProto1Activity"
+            android:label="@string/title_activity_run_proto1"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="rhdr.afrl.trialsurvey.MainActivity"/>
         </activity>
     </application>
 

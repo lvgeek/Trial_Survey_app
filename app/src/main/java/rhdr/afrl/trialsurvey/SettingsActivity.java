@@ -58,9 +58,6 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
 
-
-
-
     /** Called when the user clicks the NewProtocol button */
     public void showNewProto(View view) {
         Intent intent = new Intent(this, DisplayNewProtocolActivity.class);

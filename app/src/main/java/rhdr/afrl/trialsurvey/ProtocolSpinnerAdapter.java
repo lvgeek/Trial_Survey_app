@@ -71,10 +71,6 @@ public class ProtocolSpinnerAdapter extends ArrayAdapter<Protocol> {
         return label;
     }
 
-
-
-
-
 }
 
 
