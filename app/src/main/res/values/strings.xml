@@ -42,6 +42,9 @@
     <string name="txtQ2low">No</string>
     <string name="txtQ2high">Ready</string>
     <string name="btnRunTrial">Run Trial</string>
+    <string name="pmtProtocol">Select Protocol</string>
+    <string name="pmtSubject">Select Subject</string>
+    <string name="pmtShotcode">Select Shotcode</string>
 
     <string-array name="protocol_list">
         <item>Protocol 01</item>

@@ -30,11 +30,10 @@
             android:id="@+id/txtQuestion1"
             android:layout_below="@+id/tool_bar"
             android:layout_alignParentStart="false"
-            android:layout_marginTop="10dp"
             android:textSize="30sp"
             android:background="#000000"
             android:textColor="#ffffff"
-            android:height="60dp"
+            android:height="80dp"
             android:gravity="center_vertical"
             android:paddingLeft="10dp" />
 
@@ -44,7 +43,7 @@
             android:id="@+id/seekBar"
             android:layout_below="@+id/txtQuestion1"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="50dp"
             android:max="100"
             android:progressDrawable="@drawable/red_scrubber_progress"
             android:thumb="@drawable/red_scrubber_control" />
@@ -84,9 +83,9 @@
             android:background="#000000"
             android:autoText="false"
             android:textColor="#ffffff"
-            android:height="60dp"
+            android:height="80dp"
             android:gravity="center_vertical"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="100dp"
             android:paddingLeft="10dp" />
 
         <SeekBar
@@ -97,7 +96,7 @@
             android:progressDrawable="@drawable/red_scrubber_progress"
             android:thumb="@drawable/red_scrubber_control"
             android:layout_below="@+id/txtQuestion2"
-            android:layout_marginTop="20dp" />
+            android:layout_marginTop="50dp" />
 
         <TextView
             android:layout_width="wrap_content"
