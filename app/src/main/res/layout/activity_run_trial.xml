@@ -24,15 +24,19 @@
         </include>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/txtQ1"
             android:id="@+id/txtQuestion1"
             android:layout_below="@+id/tool_bar"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="20dp"
-            android:textSize="30sp" />
+            android:layout_alignParentStart="false"
+            android:layout_marginTop="10dp"
+            android:textSize="30sp"
+            android:background="#000000"
+            android:textColor="#ffffff"
+            android:height="60dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp" />
 
         <SeekBar
             android:layout_width="match_parent"
@@ -41,7 +45,9 @@
             android:layout_below="@+id/txtQuestion1"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:max="100" />
+            android:max="100"
+            android:progressDrawable="@drawable/red_scrubber_progress"
+            android:thumb="@drawable/red_scrubber_control" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -50,10 +56,11 @@
             android:text="@string/txtQ1low"
             android:id="@+id/txtQ1low"
             android:layout_alignParentStart="false"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:textAlignment="center"
             android:layout_below="@+id/seekBar"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            android:layout_marginLeft="10dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -63,27 +70,34 @@
             android:id="@+id/txtQ1high"
             android:layout_alignParentEnd="true"
             android:layout_alignBaseline="@+id/txtQ1low"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            android:layout_marginRight="10dp" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/txtQ2"
             android:id="@+id/txtQuestion2"
             android:layout_below="@+id/txtQ1low"
             android:layout_alignParentStart="true"
+            android:textSize="30sp"
+            android:background="#000000"
+            android:autoText="false"
+            android:textColor="#ffffff"
+            android:height="60dp"
+            android:gravity="center_vertical"
             android:layout_marginTop="20dp"
-            android:textSize="30sp" />
+            android:paddingLeft="10dp" />
 
         <SeekBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/seekBar2"
+            android:max="100"
+            android:progressDrawable="@drawable/red_scrubber_progress"
+            android:thumb="@drawable/red_scrubber_control"
             android:layout_below="@+id/txtQuestion2"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:max="100" />
+            android:layout_marginTop="20dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -92,10 +106,11 @@
             android:text="@string/txtQ2low"
             android:id="@+id/txtQ2low"
             android:layout_alignParentStart="false"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:textAlignment="center"
             android:layout_below="@+id/seekBar2"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            android:layout_marginLeft="10dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -105,7 +120,8 @@
             android:id="@+id/txtQ2high"
             android:layout_alignParentEnd="true"
             android:layout_alignBaseline="@+id/txtQ2low"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            android:layout_marginRight="10dp" />
 
         <Button
             android:layout_width="wrap_content"

@@ -35,10 +35,10 @@
     <string name="logo">AFRL_Logo</string>
     <string name="title_activity_run_protoco1">Run Protoco1 Activity</string>
     <string name="title_activity_run_trial">Run Trial Activity</string>
-    <string name="txtQ1">Rate the Pain from the Last Trial</string>
+    <string name="txtQ1"> Rate the Pain from the Last Trial</string>
     <string name="txtQ1low">No Pain</string>
     <string name="txtQ1high">Most Pain Ever Felt</string>
-    <string name="txtQ2">Ready for Another Trial?</string>
+    <string name="txtQ2"> Ready for Another Trial?</string>
     <string name="txtQ2low">No</string>
     <string name="txtQ2high">Ready</string>
     <string name="btnRunTrial">Run Trial</string>
