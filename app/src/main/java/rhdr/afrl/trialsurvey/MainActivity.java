@@ -1,12 +1,9 @@
 package rhdr.afrl.trialsurvey;
 
-
 import android.os.Bundle;
-
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.support.v7.app.AppCompatActivity;
 import android.content.Intent;
 
@@ -22,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.tool_bar); // Attaching the layout to the toolbar object
         setSupportActionBar(toolbar);
-    }
+     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -39,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            Intent intent = new Intent(this, SettingsActivity.class);
+        if (id == R.id.action_RunProtocol) {
+            Intent intent = new Intent(this, RunProtocolActivity.class);
             startActivity(intent);
             return true;
         }
@@ -48,11 +45,12 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
     /**
      * Called when the user clicks the Settings button
      */
-    public void showSettings(View view) {
+ /*   public void showSettings(View view) {
         Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
-    }
+    }*/
 }
