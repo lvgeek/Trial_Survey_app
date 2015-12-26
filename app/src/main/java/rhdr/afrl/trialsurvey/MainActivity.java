@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v7.app.AppCompatActivity;
 import android.content.Intent;
+import android.view.View;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -47,10 +48,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     /**
-     * Called when the user clicks the Settings button
+     * Called when the user clicks the Run Protocol button
      */
- /*   public void showSettings(View view) {
-        Intent intent = new Intent(this, SettingsActivity.class);
+    public void showRunProtocol(View view) {
+        Intent intent = new Intent(this, RunProtocolActivity.class);
         startActivity(intent);
-    }*/
+    }
 }

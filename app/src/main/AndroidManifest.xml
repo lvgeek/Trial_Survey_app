@@ -46,7 +46,7 @@
         -->
         <activity
             android:name=".RunProtocolActivity"
-            android:label="@string/title_activity_run_proto1"
+            android:label="@string/title_activity_run_protoco1"
             android:parentActivityName=".MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <meta-data
@@ -57,6 +57,9 @@
             android:name=".RunTrialActivity"
             android:label="@string/title_activity_run_trial"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="rhdr.afrl.trialsurvey.RunProtocolActivity" />
         </activity>
     </application>
 

@@ -4,7 +4,7 @@
     <string name="btnNewProtocol">New Protocol</string>
     <string name="btnEditProtocol">Edit Protocol</string>
     <string name="btnSettings">Settings</string>
-    <string name="btnListProtocols">List Prototols</string>
+    <string name="btnListProtocols">List Protocols</string>
     <string name="btnBackupdb">Copy Database to Downloads Folder</string>
     <string name="btnSave">Save</string>
     <string name="btnClose">Close</string>
@@ -33,12 +33,19 @@
     <string name="maxText">Max Text:</string>
     <string name="action_settings">Settings</string>
     <string name="logo">AFRL_Logo</string>
-    <string name="title_activity_run_proto1">RunProto1Activity</string>
-    <string name="title_activity_run_trial">RunTrialActivity</string>
-    <string name="txtQ1">Rate the Pain you Felt</string>
+    <string name="title_activity_run_protoco1">Run Protoco1 Activity</string>
+    <string name="title_activity_run_trial">Run Trial Activity</string>
+    <string name="txtQ1">Rate the Pain from the Last Trial</string>
     <string name="txtQ1low">No Pain</string>
-    <string name="txtQ1high">Most Pain ever Felt</string>
+    <string name="txtQ1high">Most Pain Ever Felt</string>
+    <string name="txtQ2">Ready for Another Trial?</string>
+    <string name="txtQ2low">No</string>
+    <string name="txtQ2high">Ready</string>
+    <string name="btnRunTrial">Run Trial</string>
 
+    <string-array name="protocol_list">
+        <item>Protocol 01</item>
+    </string-array>
     <string-array name="subject_list">
         <item>Subject 01</item>
         <item>Subject 02</item>
