@@ -1,5 +1,6 @@
 package rhdr.afrl.trialsurvey;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -21,5 +22,10 @@ public class RunTrialActivity extends AppCompatActivity {
 
 
     }
+    /**
+     * Called when the user clicks the Save button
+     */
+    public void SaveTrial(View view) {
 
+    }
 }
