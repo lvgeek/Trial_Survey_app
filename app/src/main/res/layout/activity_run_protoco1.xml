@@ -34,7 +34,8 @@
             android:background="@color/button_material_light"
             android:clickable="true"
             android:spinnerMode="dropdown"
-            android:prompt="@string/pmtProtocol" />
+            android:prompt="@string/pmtProtocol"
+            android:entries="@array/protocol_list"/>
 
         <Spinner
             android:id="@+id/spnrSubjectID"
@@ -46,7 +47,8 @@
             android:background="@color/button_material_light"
             android:clickable="true"
             android:spinnerMode="dropdown"
-            android:prompt="@string/pmtSubject" />
+            android:prompt="@string/pmtSubject"
+            android:entries="@array/subject_list"/>
 
         <Spinner
             android:id="@+id/spnrShotCodeID"
@@ -58,7 +60,8 @@
             android:background="@color/button_material_light"
             android:clickable="true"
             android:spinnerMode="dropdown"
-            android:prompt="@string/pmtShotcode" />
+            android:prompt="@string/pmtShotcode"
+            android:entries="@array/shotcode_list"/>
 
         <Button
             android:layout_width="wrap_content"

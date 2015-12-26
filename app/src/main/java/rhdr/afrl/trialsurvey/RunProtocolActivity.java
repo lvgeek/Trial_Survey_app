@@ -14,10 +14,6 @@ import java.util.List;
 public class RunProtocolActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     // define elements
-    int _ID;
-    String[] protocols;
-    String[] subjects;
-    String[] shotcodes;
     Spinner spnrProtocolID;
     Spinner spnrSubjectID;
     Spinner spnrShotCodeID;
@@ -33,30 +29,10 @@ public class RunProtocolActivity extends AppCompatActivity implements AdapterVie
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_white);
 
-        protocols = getResources().getStringArray(R.array.protocol_list);
-        subjects = getResources().getStringArray(R.array.subject_list);
-        shotcodes = getResources().getStringArray(R.array.shotcode_list);
-
         // link elements
         spnrProtocolID = (Spinner) findViewById(R.id.spnrProtocolID);
         spnrSubjectID = (Spinner) findViewById(R.id.spnrSubjectID);
         spnrShotCodeID = (Spinner) findViewById(R.id.spnrShotCodeID);
-
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-                R.layout.spinner_item, protocols);
-        dataAdapter.setDropDownViewResource(R.layout.spinner_item);
-        spnrProtocolID.setAdapter(dataAdapter);
-
-        ArrayAdapter<String> dataAdaptersubject = new ArrayAdapter<String>(this,
-                R.layout.spinner_item, subjects);
-        dataAdapter.setDropDownViewResource(R.layout.spinner_item);
-        spnrSubjectID.setAdapter(dataAdaptersubject);
-
-        ArrayAdapter<String> dataAdaptershotcode = new ArrayAdapter<String>(this,
-                R.layout.spinner_item, shotcodes);
-        dataAdapter.setDropDownViewResource(R.layout.spinner_item);
-        spnrShotCodeID.setAdapter(dataAdaptershotcode);
-
 
 
         // Spinner click listener
