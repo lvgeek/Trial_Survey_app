@@ -57,18 +57,19 @@ public class RunProtocolActivity extends AppCompatActivity implements AdapterVie
         spnrShotCodeID.setAdapter(dataAdaptershotcode);
 
 
-
         // Spinner click listener
         spnrProtocolID.setOnItemSelectedListener(this);
 
 
     }
+
     @Override
     public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
 
         /*Protocol selected = (Protocol) parentView.getItemAtPosition(position);
         _ID = selected.getID();*/
     }
+
     @Override
     public void onNothingSelected(AdapterView<?> parentView) {
 
@@ -90,7 +91,19 @@ public class RunProtocolActivity extends AppCompatActivity implements AdapterVie
      * Called when the user clicks the Run Protocol button
      */
     public void showRunTrial(View view) {
+
+        // read all spinner values to pass to RunTrialActivity
+        final Spinner protocol = (Spinner) findViewById((R.id.spnrProtocolID));
+        final String protocolVal = String.valueOf(protocol.getSelectedItem());
+        final Spinner subject = (Spinner) findViewById((R.id.spnrSubjectID));
+        final String subjectVal = String.valueOf(subject.getSelectedItem());
+        final Spinner shotcode = (Spinner) findViewById((R.id.spnrShotCodeID));
+        final String shotcodeVal = String.valueOf(shotcode.getSelectedItem());
+
         Intent intent = new Intent(this, RunTrialActivity.class);
+        intent.putExtra("Protocol", protocolVal);
+        intent.putExtra("Subject",subjectVal);
+        intent.putExtra("Shotcode",shotcodeVal);
         startActivity(intent);
     }
 }
