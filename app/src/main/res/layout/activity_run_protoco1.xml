@@ -35,7 +35,8 @@
             android:clickable="true"
             android:spinnerMode="dropdown"
             android:prompt="@string/pmtProtocol"
-            android:entries="@array/protocol_list"/>
+            android:entries="@array/protocol_list"
+            style="@style/TextAppearance.AppCompat.Medium" />
 
         <Spinner
             android:id="@+id/spnrSubjectID"
