@@ -3,15 +3,20 @@ package rhdr.afrl.trialsurvey;
 import android.content.Context;
 import android.media.MediaScannerConnection;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.SeekBar;
+import android.widget.Toast;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class RunTrialActivity extends AppCompatActivity {
@@ -20,8 +25,8 @@ public class RunTrialActivity extends AppCompatActivity {
     String shotcode;
     String date;
     String time;
-    int seekBarval;
-    int seekBar2val;
+    String seekBarval;
+    String seekBar2val;
 
     private Toolbar toolbar;
 
@@ -50,26 +55,30 @@ public class RunTrialActivity extends AppCompatActivity {
         //read both seekbars
         SeekBar seekBar = (SeekBar)findViewById(R.id.seekBar);
         SeekBar seekBar2 = (SeekBar)findViewById(R.id.seekBar2);
-        seekBarval = seekBar.getProgress() / seekBar.getMax();
-        seekBar2val = seekBar2.getProgress()/ seekBar2.getMax();
+        seekBarval = String.valueOf(seekBar.getProgress() / seekBar.getMax());
+        seekBar2val = String.valueOf(seekBar2.getProgress()/ seekBar2.getMax());
         //get date and time
-        String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
-        String[] splitStringArray = currentDateTimeString.split(" ");
-        date = splitStringArray[0];
-        time = splitStringArray[1];
 
-        String saveString = date + "," + time + "," + protocol + "," + subject + "," + shotcode + "," + String.valueOf(seekBarval) + "," + String.valueOf(seekBar2val);
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+        String date = df.format(c.getTime());
+        SimpleDateFormat df1 = new SimpleDateFormat("HH:mm:ss");
+        String time = df1.format(c.getTime());
+
+        String saveString = date + "," + time + "," + protocol + "," + subject + "," + shotcode + "," + seekBarval + "," + seekBar2val + "\n";
 
         try{
-            File savefile =new File(((Context)this).getExternalFilesDir(null), "SSADT_Data.csv");
+            File savefile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "SSADT_Data.csv");
             if (!savefile.exists())
                 savefile.createNewFile();
             BufferedWriter writer = new BufferedWriter(new FileWriter(savefile, true));
             writer.write(saveString);
             writer.close();
-            MediaScannerConnection.scanFile((Context)(this),new String[] {savefile.toString()},null,null);
+            //MediaScannerConnection.scanFile((Context)(this),new String[] {savefile.toString()},null,null);
         }
         catch (IOException e) {
+            Toast.makeText(this,"Unable to write: "+ saveString,Toast.LENGTH_LONG).show();
         }
+        finish();
     }
 }

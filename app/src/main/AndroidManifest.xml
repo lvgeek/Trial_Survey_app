@@ -3,6 +3,7 @@
     package="rhdr.afrl.trialsurvey">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE"/>
     make
     <application
         android:allowBackup="true"
