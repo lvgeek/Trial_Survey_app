@@ -1,7 +1,5 @@
 package rhdr.afrl.trialsurvey;
 
-import android.content.Context;
-import android.media.MediaScannerConnection;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
@@ -57,28 +55,29 @@ public class RunTrialActivity extends AppCompatActivity {
         SeekBar seekBar2 = (SeekBar)findViewById(R.id.seekBar2);
         seekBarval = String.valueOf((float) seekBar.getProgress() / seekBar.getMax());
         seekBar2val = String.valueOf((float) seekBar2.getProgress()/ seekBar2.getMax());
-        //get date and time
 
+        //get date and time
         Calendar c = Calendar.getInstance();
         SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");
         String date = df.format(c.getTime());
         SimpleDateFormat df1 = new SimpleDateFormat("HHmmss");
         String time = df1.format(c.getTime());
 
+        //csv string to write to file SSADT_Data.csv
         String saveString = date + "," + time + "," + protocol + "," + subject + "," + shotcode + "," + seekBarval + "," + seekBar2val + "\n";
 
         try{
             File savefile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "SSADT_Data.csv");
+            //check if file exists if not create new file else append to existing file
             if (!savefile.exists())
                 savefile.createNewFile();
-            BufferedWriter writer = new BufferedWriter(new FileWriter(savefile, true));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(savefile, true));//append
             writer.write(saveString);
             writer.close();
-            //MediaScannerConnection.scanFile((Context)(this),new String[] {savefile.toString()},null,null);
         }
         catch (IOException e) {
             Toast.makeText(this,"Unable to write: "+ saveString,Toast.LENGTH_LONG).show();
         }
-        finish();
+        finish(); //returns to RunProtocolActivity
     }
 }
