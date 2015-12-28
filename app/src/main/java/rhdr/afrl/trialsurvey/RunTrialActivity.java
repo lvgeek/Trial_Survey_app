@@ -55,14 +55,14 @@ public class RunTrialActivity extends AppCompatActivity {
         //read both seekbars
         SeekBar seekBar = (SeekBar)findViewById(R.id.seekBar);
         SeekBar seekBar2 = (SeekBar)findViewById(R.id.seekBar2);
-        seekBarval = String.valueOf(seekBar.getProgress() / seekBar.getMax());
-        seekBar2val = String.valueOf(seekBar2.getProgress()/ seekBar2.getMax());
+        seekBarval = String.valueOf((float) seekBar.getProgress() / seekBar.getMax());
+        seekBar2val = String.valueOf((float) seekBar2.getProgress()/ seekBar2.getMax());
         //get date and time
 
         Calendar c = Calendar.getInstance();
-        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+        SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");
         String date = df.format(c.getTime());
-        SimpleDateFormat df1 = new SimpleDateFormat("HH:mm:ss");
+        SimpleDateFormat df1 = new SimpleDateFormat("HHmmss");
         String time = df1.format(c.getTime());
 
         String saveString = date + "," + time + "," + protocol + "," + subject + "," + shotcode + "," + seekBarval + "," + seekBar2val + "\n";
