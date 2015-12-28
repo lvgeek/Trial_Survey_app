@@ -35,12 +35,12 @@
     <string name="logo">AFRL_Logo</string>
     <string name="title_activity_run_protoco1">RUN PROTOCOL</string>
     <string name="title_activity_run_trial">RUN TRIAL</string>
-    <string name="txtQ1"> Rate the Pain from the Last Trial</string>
+    <string name="txtQ1"> Rate the <b>Pain</b> of the Last Trial</string>
     <string name="txtQ1low">No Pain</string>
-    <string name="txtQ1high">Most Pain Ever Felt</string>
-    <string name="txtQ2"> Ready for Another Trial?</string>
-    <string name="txtQ2low">No</string>
-    <string name="txtQ2high">Ready</string>
+    <string name="txtQ1high">Very Severe Pain</string>
+    <string name="txtQ2"> Rate your <b>Readiness</b> for the next Trial</string>
+    <string name="txtQ2low">Not at All Ready</string>
+    <string name="txtQ2high">Ready Now</string>
     <string name="btnRunTrial">Run Trial</string>
     <string name="pmtProtocol">Select Protocol:</string>
     <string name="pmtSubject">Select Subject:</string>
