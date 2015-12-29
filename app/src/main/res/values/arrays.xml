@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="protocol_list">
-        <item>Protocol 01</item>
+        <item>SS-ADT</item>
     </string-array>
 
     <string-array name="subject_list">
+        <item>Select Subject</item>
         <item>Subject 01</item>
         <item>Subject 02</item>
         <item>Subject 03</item>
@@ -31,6 +32,7 @@
     </string-array>
 
     <string-array name="shotcode_list">
+        <item>Select Shotcode</item>
         <item>Shotcode 01</item>
         <item>Shotcode 02</item>
         <item>Shotcode 03</item>

@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 
 import java.util.List;
@@ -20,6 +21,7 @@ public class RunProtocolActivity extends AppCompatActivity implements AdapterVie
     Spinner spnrProtocolID;
     Spinner spnrSubjectID;
     Spinner spnrShotCodeID;
+    Button btn;
     private Toolbar toolbar;
 
     @Override
@@ -31,6 +33,9 @@ public class RunProtocolActivity extends AppCompatActivity implements AdapterVie
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_white);
+
+        btn = (Button) findViewById(R.id.btnRunTrial);
+        btn.setEnabled(false);
 
         protocols = getResources().getStringArray(R.array.protocol_list);
         subjects = getResources().getStringArray(R.array.subject_list);
@@ -56,36 +61,31 @@ public class RunProtocolActivity extends AppCompatActivity implements AdapterVie
         dataAdapter.setDropDownViewResource(R.layout.spinner_item);
         spnrShotCodeID.setAdapter(dataAdaptershotcode);
 
+        spnrSubjectID.setSelection(0);
+        spnrShotCodeID.setSelection(0);
 
         // Spinner click listener
-        spnrProtocolID.setOnItemSelectedListener(this);
+        spnrSubjectID.setOnItemSelectedListener(this);
+        spnrShotCodeID.setOnItemSelectedListener(this);
 
 
     }
 
     @Override
-    public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+    public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 
-        /*Protocol selected = (Protocol) parentView.getItemAtPosition(position);
-        _ID = selected.getID();*/
+        if (spnrSubjectID.getSelectedItemPosition()!=0 && spnrShotCodeID.getSelectedItemPosition()!=0) {
+            btn.setEnabled(true);
+        }else {
+            btn.setEnabled(false);
+        }
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parentView) {
 
     }
- /*   // Function to load the spinner data from SQLite database
-    private void loadSpinnerData() {
-        ProtocolSpinnerAdapter protocolAdapter;
-        DBHandler db = new DBHandler(getApplicationContext());
-        List<Protocol> protocolList = db.getAllProtocols();
-        protocolAdapter = new ProtocolSpinnerAdapter(RunProtocolActivity.this,
-                android.R.layout.simple_spinner_item, protocolList);
-        spnrProtocolID.setAdapter(protocolAdapter);
 
-        protocolAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-    }
-*/
 
     /**
      * Called when the user clicks the Run Protocol button
