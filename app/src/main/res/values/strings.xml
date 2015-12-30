@@ -45,7 +45,7 @@
     <string name="pmtProtocol"><b>Protocol:</b></string>
     <string name="pmtSubject"><b>Subject:</b></string>
     <string name="pmtShotcode"><b>Shotcode:</b></string>
-
+    <string name="pmtmedMonitor">Medical Monitor:</string>
 
 
 </resources>

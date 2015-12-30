@@ -4,6 +4,13 @@
         <item>SS-ADT</item>
     </string-array>
 
+    <string-array name="medMonitor_list">
+        <item>Select Medical Monitor</item>
+        <item>LtCol Gibbons</item>
+        <item>Maj Lupfer</item>
+        <item>Capt Ho</item>
+    </string-array>
+
     <string-array name="subject_list">
         <item>Select Subject</item>
         <item>Subject 01</item>
