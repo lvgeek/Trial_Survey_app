@@ -10,9 +10,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 
-public class ExposureExam extends AppCompatActivity {
+public class ExposureExam extends AppCompatActivity implements AdapterView.OnItemSelectedListener  {
 
     // define elements
     String protocolVal;
@@ -25,6 +26,7 @@ public class ExposureExam extends AppCompatActivity {
     Spinner spnrlocationID;
     Spinner spnrskinID;
     Spinner spnrexamID;
+    EditText comment;
     Button btn;
     private Toolbar toolbar;
 
@@ -64,6 +66,8 @@ public class ExposureExam extends AppCompatActivity {
                 R.layout.spinner_item, exams);
         dataAdapterexam.setDropDownViewResource(R.layout.spinner_item);
         spnrexamID.setAdapter(dataAdapterexam);
+
+        comment = (EditText) findViewById(R.id.editcommentID);
 
         spnrlocationID.setSelection(0);
         spnrskinID.setSelection(0);
@@ -114,15 +118,24 @@ public class ExposureExam extends AppCompatActivity {
         final String skinVal = String.valueOf(skin.getSelectedItem());
         final Spinner exam = (Spinner) findViewById((R.id.spnrexamID));
         final String examVal = String.valueOf(exam.getSelectedItem());
+        final String commentVal = comment.getText().toString();
 
         Intent intent = new Intent(this, RunTrialActivity.class);
         intent.putExtra("Protocol", protocolVal);
         intent.putExtra("MedMonitor", medMonitorVal);
         intent.putExtra("Subject", subjectVal);
         intent.putExtra("Shotcode", shotcodeVal);
+        intent.putExtra("Location", locationVal);
+        intent.putExtra("Skin", skinVal);
+        intent.putExtra("Exam", examVal);
+        intent.putExtra("Comment", commentVal);
         startActivity(intent);
-        spnrSubjectID.setSelection(0);
-        spnrShotCodeID.setSelection(0);
+
+        spnrlocationID.setSelection(0);
+        spnrskinID.setSelection(0);
+        spnrexamID.setSelection(0);
+        comment.setText("");
+
     }
 
 }

@@ -21,6 +21,7 @@ import java.util.Random;
 
 public class RunTrialActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener {
     String protocol;
+    String medMonitor;
     String subject;
     String shotcode;
     String date;
@@ -47,12 +48,12 @@ public class RunTrialActivity extends AppCompatActivity implements SeekBar.OnSee
         btn.setEnabled(false);
 
         seekBar = (SeekBar)findViewById(R.id.seekBar);
- //       seekBar.setProgress(50);
-        seekBar.setProgress(rand.nextInt(seekBar.getMax()));
+        seekBar.setProgress(50);
+ //       seekBar.setProgress(rand.nextInt(seekBar.getMax()));
         seekBar.setOnSeekBarChangeListener(this);
         seekBar2 = (SeekBar)findViewById(R.id.seekBar2);
- //       seekBar2.setProgress(50);
-        seekBar2.setProgress(rand.nextInt(seekBar2.getMax()));
+        seekBar2.setProgress(50);
+ //       seekBar2.setProgress(rand.nextInt(seekBar2.getMax()));
         seekBar2.setOnSeekBarChangeListener(this);
 
         seekchng = 0;
@@ -62,6 +63,7 @@ public class RunTrialActivity extends AppCompatActivity implements SeekBar.OnSee
         Bundle extras = getIntent().getExtras();
         if (null != extras) {
             protocol = extras.getString("Protocol");
+            medMonitor = extras.getString("MedMonitor");
             subject = extras.getString("Subject");
             shotcode = extras.getString("Shotcode");
         }
@@ -105,28 +107,7 @@ public class RunTrialActivity extends AppCompatActivity implements SeekBar.OnSee
         seekBarval = String.valueOf((float) seekBar.getProgress() / seekBar.getMax());
         seekBar2val = String.valueOf((float) seekBar2.getProgress()/ seekBar2.getMax());
 
-        //get date and time
-        Calendar c = Calendar.getInstance();
-        SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");
-        String date = df.format(c.getTime());
-        SimpleDateFormat df1 = new SimpleDateFormat("HHmmss");
-        String time = df1.format(c.getTime());
 
-        //csv string to write to file SSADT_Data.csv
-        String saveString = date + "," + time + "," + protocol + "," + subject + "," + shotcode + "," + seekBarval + "," + seekBar2val + "\n";
-
-        try{
-            File savefile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "SSADT_Data.csv");
-            //check if file exists if not create new file else append to existing file
-            if (!savefile.exists())
-                savefile.createNewFile();
-            BufferedWriter writer = new BufferedWriter(new FileWriter(savefile, true));//append
-            writer.write(saveString);
-            writer.close();
-        }
-        catch (IOException e) {
-            Toast.makeText(this,"Unable to write: "+ saveString,Toast.LENGTH_LONG).show();
-        }
         finish(); //returns to RunProtocolActivity
     }
 }
