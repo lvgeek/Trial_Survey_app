@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="rhdr.afrl.trialsurvey">
+<manifest package="rhdr.afrl.trialsurvey"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE"/>
     make
     <application
@@ -13,38 +13,11 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <!--
-        <activity android:name=".DisplayNewProtocolActivity">
-        </activity>
-        <activity
-            android:name=".SettingsActivity"
-            android:label="@string/title_Settings"
-            android:parentActivityName=".MainActivity">
-
-            &lt;!&ndash; Parent activity meta-data to support 4.0 and lower &ndash;&gt;
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
-        </activity>
-        <activity android:name=".DisplayEditProtocolActivity">
-        </activity>
-        <activity
-            android:name=".DisplaySQLite"
-            android:label="@string/title_display_protocols"
-            android:parentActivityName=".MainActivity">
-
-            &lt;!&ndash; Parent activity meta-data to support 4.0 and lower &ndash;&gt;
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
-            >
-        </activity>
-        -->
         <activity
             android:name=".RunProtocolActivity"
             android:label="@string/title_activity_run_protoco1"
@@ -52,16 +25,25 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="rhdr.afrl.trialsurvey.MainActivity" />
+                android:value="rhdr.afrl.trialsurvey.MainActivity"/>
         </activity>
         <activity
             android:name=".RunTrialActivity"
             android:label="@string/title_activity_run_trial"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:noHistory="true" >
+            android:noHistory="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="rhdr.afrl.trialsurvey.RunProtocolActivity" />
+                android:value="rhdr.afrl.trialsurvey.RunProtocolActivity"/>
+        </activity>
+        <activity
+            android:name=".ExposureExam"
+            android:label="@string/title_activity_exposure_exam"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="rhdr.afrl.trialsurvey.MainActivity"/>
         </activity>
     </application>
 

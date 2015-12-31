@@ -1,11 +1,6 @@
 <resources>
     <string name="app_name"><large>SSADT TRIAL SURVEY</large></string>
     <string name="btnRunProtocol">Run Protocol</string>
-    <string name="btnNewProtocol">New Protocol</string>
-    <string name="btnEditProtocol">Edit Protocol</string>
-    <string name="btnSettings">Settings</string>
-    <string name="btnListProtocols">List Protocols</string>
-    <string name="btnBackupdb">Copy Database to Downloads Folder</string>
     <string name="btnSave">Save Trial</string>
     <string name="btnClose">Close</string>
     <string name="title_activity_display_new_protocol">Add New Protocol</string>
@@ -46,6 +41,13 @@
     <string name="pmtSubject">Subject:</string>
     <string name="pmtShotcode">Shotcode:</string>
     <string name="pmtmedMonitor">Medical Monitor:</string>
+    <string name="title_activity_exposure_exam">Exposure Exam</string>
+    <string name="txtlocation">Location:</string>
+    <string name="txtskin">Skin Complaint:</string>
+    <string name="txtexam">Skin Exam:</string>
+    <string name="txtcomments">Comments:</string>
+    <string name="btnSaveEndSession">Save - End Session:&#10;goto Post Exposure Survey</string>
+    <string name="btnSaveNextTrial">Save&#10;goto Next Trial</string>
 
 
 </resources>
