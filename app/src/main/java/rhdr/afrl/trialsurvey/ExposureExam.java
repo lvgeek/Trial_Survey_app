@@ -52,8 +52,10 @@ public class ExposureExam extends AppCompatActivity implements AdapterView.OnIte
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_white);
 
-        btn = (Button) findViewById(R.id.btnRunTrial);
+        btn = (Button) findViewById(R.id.btnSaveNextTrial);
         btn.setEnabled(false);
+        btn2 = (Button) findViewById(R.id.btnSaveEndSession);
+        btn2.setEnabled(false);
 
 
         locations = getResources().getStringArray(R.array.location_list);
@@ -61,9 +63,9 @@ public class ExposureExam extends AppCompatActivity implements AdapterView.OnIte
         exams = getResources().getStringArray(R.array.exam_list);
 
         // link elements
-        spnrlocationID = (Spinner) findViewById(R.id.spnrProtocolID);
-        spnrskinID = (Spinner) findViewById(R.id.spnrmedMonitorID);
-        spnrexamID = (Spinner) findViewById(R.id.spnrSubjectID);
+        spnrlocationID = (Spinner) findViewById(R.id.spnrlocationID);
+        spnrskinID = (Spinner) findViewById(R.id.spnrskinID);
+        spnrexamID = (Spinner) findViewById(R.id.spnrexamID);
 
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
                 R.layout.spinner_item, locations);
@@ -82,9 +84,12 @@ public class ExposureExam extends AppCompatActivity implements AdapterView.OnIte
 
         comment = (EditText) findViewById(R.id.editcommentID);
 
+        //set all inputs to null
         spnrlocationID.setSelection(0);
         spnrskinID.setSelection(0);
         spnrexamID.setSelection(0);
+        comment.setText("");
+
 
         // Spinner click listener
         spnrlocationID.setOnItemSelectedListener(this);
