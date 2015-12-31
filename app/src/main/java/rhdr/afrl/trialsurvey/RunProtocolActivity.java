@@ -10,8 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
-import java.util.List;
-
 public class RunProtocolActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     // define elements
@@ -29,7 +27,7 @@ public class RunProtocolActivity extends AppCompatActivity implements AdapterVie
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_run_protoco1);
+        setContentView(R.layout.activity_run_protocol);
 
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
