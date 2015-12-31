@@ -1,5 +1,6 @@
 package rhdr.afrl.trialsurvey;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
@@ -20,10 +21,10 @@ import java.util.Date;
 import java.util.Random;
 
 public class RunTrialActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener {
-    String protocol;
-    String medMonitor;
-    String subject;
-    String shotcode;
+    String protocolVal;
+    String medMonitorVal;
+    String subjectVal;
+    String shotcodeVal;
     String date;
     String time;
     String seekBarval;
@@ -62,10 +63,10 @@ public class RunTrialActivity extends AppCompatActivity implements SeekBar.OnSee
 
         Bundle extras = getIntent().getExtras();
         if (null != extras) {
-            protocol = extras.getString("Protocol");
-            medMonitor = extras.getString("MedMonitor");
-            subject = extras.getString("Subject");
-            shotcode = extras.getString("Shotcode");
+            protocolVal = extras.getString("Protocol");
+            medMonitorVal = extras.getString("MedMonitor");
+            subjectVal = extras.getString("Subject");
+            shotcodeVal = extras.getString("Shotcode");
         }
 
     }
@@ -107,7 +108,16 @@ public class RunTrialActivity extends AppCompatActivity implements SeekBar.OnSee
         seekBarval = String.valueOf((float) seekBar.getProgress() / seekBar.getMax());
         seekBar2val = String.valueOf((float) seekBar2.getProgress()/ seekBar2.getMax());
 
+        Intent intent = new Intent(this, ExposureExam.class);
+        intent.putExtra("Protocol", protocolVal);
+        intent.putExtra("MedMonitor", medMonitorVal);
+        intent.putExtra("Subject",subjectVal);
+        intent.putExtra("Shotcode",shotcodeVal);
+        intent.putExtra("Question1",seekBarval);
+        intent.putExtra("Question2",seekBar2val);
+        startActivity(intent);
 
-        finish(); //returns to RunProtocolActivity
+        seekBar.setProgress(50);
+        seekBar2.setProgress(50);
     }
 }

@@ -104,7 +104,7 @@
             android:text="@string/btnSaveEndSession"
             android:id="@+id/btnSaveEndSession"
             android:textSize="25dp"
-            android:onClick="showRunTrial"
+            android:onClick="showSaveEndSession"
             android:layout_alignBottom="@+id/btnSaveNextTrial"
             android:layout_alignParentStart="false"
             android:layout_alignParentEnd="true"

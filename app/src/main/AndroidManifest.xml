@@ -39,11 +39,14 @@
         <activity
             android:name=".ExposureExam"
             android:label="@string/title_activity_exposure_exam"
+            android:noHistory="true"
             android:parentActivityName=".MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="rhdr.afrl.trialsurvey.MainActivity"/>
+        </activity>
+        <activity android:name=".PostExposureSurvay">
         </activity>
     </application>
 

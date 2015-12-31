@@ -1,7 +1,9 @@
 package rhdr.afrl.trialsurvey;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +14,15 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 
 public class ExposureExam extends AppCompatActivity implements AdapterView.OnItemSelectedListener  {
 
@@ -20,6 +31,8 @@ public class ExposureExam extends AppCompatActivity implements AdapterView.OnIte
     String medMonitorVal;
     String subjectVal;
     String shotcodeVal;
+    String question1Val;
+    String question2Val;
     String[] locations;
     String[] skins;
     String[] exams;
@@ -27,7 +40,7 @@ public class ExposureExam extends AppCompatActivity implements AdapterView.OnIte
     Spinner spnrskinID;
     Spinner spnrexamID;
     EditText comment;
-    Button btn;
+    Button btn, btn2;
     private Toolbar toolbar;
 
     @Override
@@ -85,6 +98,8 @@ public class ExposureExam extends AppCompatActivity implements AdapterView.OnIte
             medMonitorVal = extras.getString("MedMonitor");
             subjectVal = extras.getString("Subject");
             shotcodeVal = extras.getString("Shotcode");
+            question1Val = extras.getString("Question1");
+            question2Val = extras.getString("Question2");
         }
 
 
@@ -95,8 +110,10 @@ public class ExposureExam extends AppCompatActivity implements AdapterView.OnIte
 
         if (spnrlocationID.getSelectedItemPosition() != 0 && spnrskinID.getSelectedItemPosition() != 0 && spnrexamID.getSelectedItemPosition() != 0) {
             btn.setEnabled(true);
+            btn2.setEnabled(true);
         } else {
             btn.setEnabled(false);
+            btn2.setEnabled(false);
         }
     }
 
@@ -107,11 +124,11 @@ public class ExposureExam extends AppCompatActivity implements AdapterView.OnIte
 
 
     /**
-     * Called when the user clicks the Run Protocol button
+     * Called when the user clicks the SaveNextTrial button
      */
-    public void showRunTrial(View view) {
+    public void showSaveNextTrial(View view) {
 
-        // read all spinner values to pass to RunTrialActivity
+        // read all spinner values to pass to Next Activity
         final Spinner location = (Spinner) findViewById((R.id.spnrlocationID));
         final String locationVal = String.valueOf(location.getSelectedItem());
         final Spinner skin = (Spinner) findViewById((R.id.spnrskinID));
@@ -120,11 +137,38 @@ public class ExposureExam extends AppCompatActivity implements AdapterView.OnIte
         final String examVal = String.valueOf(exam.getSelectedItem());
         final String commentVal = comment.getText().toString();
 
-        Intent intent = new Intent(this, RunTrialActivity.class);
+        String saveStringVal = protocolVal + "," + medMonitorVal + "," + subjectVal + "," + shotcodeVal + "," + question1Val + "," + question2Val + "," + locationVal + ","+ skinVal + ","+ examVal + ","+ commentVal +  "/n";
+
+        saveTrial(saveStringVal);
+
+        spnrlocationID.setSelection(0);
+        spnrskinID.setSelection(0);
+        spnrexamID.setSelection(0);
+        comment.setText("");
+
+    }
+
+    /**
+     * Called when the user clicks the SaveEndSession button
+     */
+    public void showSaveEndSession(View view) {
+
+        // read all spinner values to pass to Next Activity
+        final Spinner location = (Spinner) findViewById((R.id.spnrlocationID));
+        final String locationVal = String.valueOf(location.getSelectedItem());
+        final Spinner skin = (Spinner) findViewById((R.id.spnrskinID));
+        final String skinVal = String.valueOf(skin.getSelectedItem());
+        final Spinner exam = (Spinner) findViewById((R.id.spnrexamID));
+        final String examVal = String.valueOf(exam.getSelectedItem());
+        final String commentVal = comment.getText().toString();
+
+        Intent intent = new Intent(this, PostExposureSurvay.class);
         intent.putExtra("Protocol", protocolVal);
         intent.putExtra("MedMonitor", medMonitorVal);
         intent.putExtra("Subject", subjectVal);
         intent.putExtra("Shotcode", shotcodeVal);
+        intent.putExtra("Question1", question1Val);
+        intent.putExtra("Question2", question2Val);
         intent.putExtra("Location", locationVal);
         intent.putExtra("Skin", skinVal);
         intent.putExtra("Exam", examVal);
@@ -138,4 +182,28 @@ public class ExposureExam extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
+    public void saveTrial(String saveString) {
+
+        //get date and time
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");
+        String date = df.format(c.getTime());
+        SimpleDateFormat df1 = new SimpleDateFormat("HHmmss");
+        String time = df1.format(c.getTime());
+
+        //csv string to write to file SSADT_Data.csv
+        String saveStringVal = date + "," + time + "," + saveString;
+
+        try {
+            File savefile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "SSADT_Data.csv");
+            //check if file exists if not create new file else append to existing file
+            if (!savefile.exists())
+                savefile.createNewFile();
+            BufferedWriter writer = new BufferedWriter(new FileWriter(savefile, true));//append
+            writer.write(saveStringVal);
+            writer.close();
+        } catch (IOException e) {
+            Toast.makeText(this, "Unable to write: " + saveStringVal, Toast.LENGTH_LONG).show();
+        }
+    }
 }
