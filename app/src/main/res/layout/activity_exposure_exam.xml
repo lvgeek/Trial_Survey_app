@@ -40,7 +40,9 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:layout_toRightOf="@+id/txtlocation"
-            android:layout_alignBaseline="@+id/txtlocation"/>
+            android:layout_alignBaseline="@+id/txtlocation"
+            android:focusableInTouchMode="true"
+            android:focusable="true" />
 
         <Spinner
             android:id="@+id/spnrskinID"

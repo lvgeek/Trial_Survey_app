@@ -150,6 +150,7 @@ public class ExposureExam extends AppCompatActivity implements AdapterView.OnIte
         spnrskinID.setSelection(0);
         spnrexamID.setSelection(0);
         comment.setText("");
+        finish();
 
     }
 
