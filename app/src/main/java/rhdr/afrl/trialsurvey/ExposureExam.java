@@ -89,7 +89,7 @@ public class ExposureExam extends AppCompatActivity implements AdapterView.OnIte
         spnrskinID.setSelection(0);
         spnrexamID.setSelection(0);
         comment.setText("");
-
+        spnrlocationID.requestFocus();
 
         // Spinner click listener
         spnrlocationID.setOnItemSelectedListener(this);
@@ -142,7 +142,7 @@ public class ExposureExam extends AppCompatActivity implements AdapterView.OnIte
         final String examVal = String.valueOf(exam.getSelectedItem());
         final String commentVal = comment.getText().toString();
 
-        String saveStringVal = protocolVal + "," + medMonitorVal + "," + subjectVal + "," + shotcodeVal + "," + question1Val + "," + question2Val + "," + locationVal + ","+ skinVal + ","+ examVal + ","+ commentVal +  "/n";
+        String saveStringVal = protocolVal + "," + medMonitorVal + "," + subjectVal + "," + shotcodeVal + "," + question1Val + "," + question2Val + "," + locationVal + ","+ skinVal + ","+ examVal + ","+ commentVal +  "\n";
 
         saveTrial(saveStringVal);
 

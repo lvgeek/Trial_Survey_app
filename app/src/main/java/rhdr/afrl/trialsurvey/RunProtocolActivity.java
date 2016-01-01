@@ -117,6 +117,7 @@ public class RunProtocolActivity extends AppCompatActivity implements AdapterVie
         intent.putExtra("Subject",subjectVal);
         intent.putExtra("Shotcode",shotcodeVal);
         startActivity(intent);
+
         spnrSubjectID.setSelection(0);
         spnrShotCodeID.setSelection(0);
     }
