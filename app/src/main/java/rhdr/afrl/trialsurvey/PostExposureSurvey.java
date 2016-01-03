@@ -2,15 +2,12 @@ package rhdr.afrl.trialsurvey;
 
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,7 +34,7 @@ public class PostExposureSurvey extends AppCompatActivity {
     String commentVal;
     String rb1val, rb2val, rb3val;
     Button btn;
-    TextView subjectID, shotcodeID;
+    TextView subjectID;
     private Toolbar toolbar;
     private RadioGroup radioGroup, radioGroup2, radioGroup3;
 
@@ -79,8 +76,7 @@ public class PostExposureSurvey extends AppCompatActivity {
 
         subjectID = (TextView) findViewById(R.id.txtsubjectID);
         subjectID.setText(subjectVal);
-        shotcodeID = (TextView) findViewById(R.id.txtShotcodeID);
-        shotcodeID.setText(shotcodeVal);
+
 
     }
 
