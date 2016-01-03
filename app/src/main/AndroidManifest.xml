@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="rhdr.afrl.trialsurvey"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="rhdr.afrl.trialsurvey">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
     make
     <application
         android:allowBackup="true"
@@ -13,9 +13,9 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
@@ -25,7 +25,7 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="rhdr.afrl.trialsurvey.MainActivity"/>
+                android:value="rhdr.afrl.trialsurvey.MainActivity" />
         </activity>
         <activity
             android:name=".RunTrialActivity"
@@ -34,7 +34,7 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="rhdr.afrl.trialsurvey.RunProtocolActivity"/>
+                android:value="rhdr.afrl.trialsurvey.RunProtocolActivity" />
         </activity>
         <activity
             android:name=".ExposureExam"
@@ -44,10 +44,9 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="rhdr.afrl.trialsurvey.MainActivity"/>
+                android:value="rhdr.afrl.trialsurvey.MainActivity" />
         </activity>
-        <activity android:name=".PostExposureSurvay">
-        </activity>
+        <activity android:name=".PostExposureSurvey"></activity>
     </application>
 
 </manifest>

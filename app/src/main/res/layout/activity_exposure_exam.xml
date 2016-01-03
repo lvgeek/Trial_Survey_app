@@ -168,7 +168,10 @@
             android:textColor="#000000"
             android:layout_marginLeft="10dp"
             android:textStyle="bold"
-            android:layout_below="@+id/txtexam"/>
+            android:layout_below="@+id/txtexam"
+            android:clickable="false" />
+
+
 
 
     </RelativeLayout>

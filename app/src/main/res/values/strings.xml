@@ -1,35 +1,10 @@
 <resources>
     <string name="app_name"><large>SSADT TRIAL SURVEY</large></string>
     <string name="btnRunProtocol">Run Protocol</string>
-    <string name="btnSave">Save Trial</string>
-    <string name="btnClose">Close</string>
-    <string name="title_activity_display_new_protocol">Add New Protocol</string>
-    <string name="title_activity_display_edit_protocol">Edit Protocol Settings</string>
-    <string name="title_display_protocols">Protocol List</string>
-    <string name="title_Settings">Settings</string>
-    <string name="title_MainMenu">Trial Survey App</string>
-    <string name="hint_new_protocol">Enter New Protocol ID</string>
-    <string name="hint_new_numSubjects">Enter Number of Subjects</string>
-    <string name="hint_new_numShotcodes">Enter Number of Shotcodes</string>
-    <string name="hint_new_Question">Enter New Question</string>
-    <string name="hint_new_minText">Enter New Text at Min</string>
-    <string name="hint_new_maxText">Enter New Text at Max</string>
-    <string name="hint_protocol">Protocol ID</string>
-    <string name="hint_numSubjects">Number of Subjects</string>
-    <string name="hint_numShotcodes">Number of Shotcodes</string>
-    <string name="hint_Question">Question</string>
-    <string name="hint_minText">Text at Min</string>
-    <string name="hint_maxText">Text at Max</string>
-    <string name="ProtocolID">Protocol ID:</string>
-    <string name="Subjects"># Subjects:</string>
-    <string name="Shotcodes"># Shotcodes:</string>
-    <string name="Question">Survey Question:</string>
-    <string name="minText">Min Text:</string>
-    <string name="maxText">Max Text:</string>
-    <string name="action_settings">Settings</string>
+    <string name="btnSave">Save Survey</string>
     <string name="logo">AFRL_Logo</string>
-    <string name="title_activity_run_protoco1">RUN PROTOCOL</string>
-    <string name="title_activity_run_trial">RUN TRIAL</string>
+    <string name="title_activity_run_protoco1">Trial Setup</string>
+    <string name="title_activity_run_trial">Post Trial Survey</string>
     <string name="txtQ1"> Rate the <b>Pain</b> of the Last Trial</string>
     <string name="txtQ1low">No Pain</string>
     <string name="txtQ1high">Worst Pain Imaginable</string>
@@ -41,13 +16,13 @@
     <string name="pmtSubject">Subject:</string>
     <string name="pmtShotcode">Shotcode:</string>
     <string name="pmtmedMonitor">Medical Monitor:</string>
-    <string name="title_activity_exposure_exam">Exposure Exam</string>
+    <string name="title_activity_exposure_exam">Interim Exposure Exam</string>
     <string name="txtlocation">Location:</string>
     <string name="txtskin">Skin Complaint:</string>
     <string name="txtexam">Skin Exam:</string>
     <string name="txtcomments">Comments:</string>
     <string name="btnSaveEndSession">Save - End Session:&#10;goto Post Exposure Survey</string>
-    <string name="btnSaveNextTrial">Save&#10;goto Next Trial</string>
+    <string name="btnSaveNextTrial">Save - &#10;goto Next Trial</string>
 
 
 </resources>

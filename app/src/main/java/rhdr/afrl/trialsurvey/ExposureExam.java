@@ -9,6 +9,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -24,7 +25,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 
-public class ExposureExam extends AppCompatActivity implements AdapterView.OnItemSelectedListener  {
+public class ExposureExam extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     // define elements
     String protocolVal;
@@ -51,6 +52,7 @@ public class ExposureExam extends AppCompatActivity implements AdapterView.OnIte
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_white);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
         btn = (Button) findViewById(R.id.btnSaveNextTrial);
         btn.setEnabled(false);
@@ -84,12 +86,20 @@ public class ExposureExam extends AppCompatActivity implements AdapterView.OnIte
 
         comment = (EditText) findViewById(R.id.editcommentID);
 
+        /*comment.setOnFocusChangeListener(new View.OnFocusChangeListener(){
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+            }
+        });*/
+
+
         //set all inputs to null
         spnrlocationID.setSelection(0);
         spnrskinID.setSelection(0);
         spnrexamID.setSelection(0);
         comment.setText("");
-        spnrlocationID.requestFocus();
+
 
         // Spinner click listener
         spnrlocationID.setOnItemSelectedListener(this);
@@ -142,9 +152,27 @@ public class ExposureExam extends AppCompatActivity implements AdapterView.OnIte
         final String examVal = String.valueOf(exam.getSelectedItem());
         final String commentVal = comment.getText().toString();
 
-        String saveStringVal = protocolVal + "," + medMonitorVal + "," + subjectVal + "," + shotcodeVal + "," + question1Val + "," + question2Val + "," + locationVal + ","+ skinVal + ","+ examVal + ","+ commentVal +  "\n";
+        //get date and time
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");
+        String date = df.format(c.getTime());
+        SimpleDateFormat df1 = new SimpleDateFormat("HHmmss");
+        String time = df1.format(c.getTime());
 
-        saveTrial(saveStringVal);
+        //csv string to write to file SSADT_Data.csv
+        String saveStringVal = date + "," + time + "," + protocolVal + "," + medMonitorVal + "," + subjectVal + "," + shotcodeVal + "," + question1Val + "," + question2Val + "," + locationVal + "," + skinVal + "," + examVal + "," + commentVal + "\n";
+
+        try {
+            File savefile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "SSADT_Data.csv");
+            //check if file exists if not create new file else append to existing file
+            if (!savefile.exists())
+                savefile.createNewFile();
+            BufferedWriter writer = new BufferedWriter(new FileWriter(savefile, true));//append
+            writer.write(saveStringVal);
+            writer.close();
+        } catch (IOException e) {
+            Toast.makeText(this, "Unable to write: " + saveStringVal, Toast.LENGTH_LONG).show();
+        }
 
         spnrlocationID.setSelection(0);
         spnrskinID.setSelection(0);
@@ -168,7 +196,7 @@ public class ExposureExam extends AppCompatActivity implements AdapterView.OnIte
         final String examVal = String.valueOf(exam.getSelectedItem());
         final String commentVal = comment.getText().toString();
 
-        Intent intent = new Intent(this, PostExposureSurvay.class);
+        Intent intent = new Intent(this, PostExposureSurvey.class);
         intent.putExtra("Protocol", protocolVal);
         intent.putExtra("MedMonitor", medMonitorVal);
         intent.putExtra("Subject", subjectVal);
@@ -188,28 +216,4 @@ public class ExposureExam extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
-    public void saveTrial(String saveString) {
-
-        //get date and time
-        Calendar c = Calendar.getInstance();
-        SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");
-        String date = df.format(c.getTime());
-        SimpleDateFormat df1 = new SimpleDateFormat("HHmmss");
-        String time = df1.format(c.getTime());
-
-        //csv string to write to file SSADT_Data.csv
-        String saveStringVal = date + "," + time + "," + saveString;
-
-        try {
-            File savefile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "SSADT_Data.csv");
-            //check if file exists if not create new file else append to existing file
-            if (!savefile.exists())
-                savefile.createNewFile();
-            BufferedWriter writer = new BufferedWriter(new FileWriter(savefile, true));//append
-            writer.write(saveStringVal);
-            writer.close();
-        } catch (IOException e) {
-            Toast.makeText(this, "Unable to write: " + saveStringVal, Toast.LENGTH_LONG).show();
-        }
-    }
 }
