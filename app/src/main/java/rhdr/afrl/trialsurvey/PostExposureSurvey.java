@@ -1,13 +1,141 @@
 package rhdr.afrl.trialsurvey;
 
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class PostExposureSurvey extends AppCompatActivity {
+
+
+    // define elements
+    String protocolVal;
+    String medMonitorVal;
+    String subjectVal;
+    String shotcodeVal;
+    String question1Val;
+    String question2Val;
+    String locationVal;
+    String skinVal;
+    String examVal;
+    String commentVal;
+    String rb1val, rb2val, rb3val;
+    Button btn;
+    TextView subjectID, shotcodeID;
+    private Toolbar toolbar;
+    private RadioGroup radioGroup, radioGroup2, radioGroup3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_exposure_survey);
+        toolbar = (Toolbar) findViewById(R.id.tool_bar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_white);
+
+        btn = (Button) findViewById(R.id.btnSave);
+        btn.setEnabled(false);
+
+        /* Initialize Radio Group and attach click handler */
+        radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
+        radioGroup.clearCheck();
+        radioGroup2 = (RadioGroup) findViewById(R.id.radioGroup2);
+        radioGroup2.clearCheck();
+        radioGroup3 = (RadioGroup) findViewById(R.id.radioGroup3);
+        radioGroup3.clearCheck();
+
+
+        Bundle extras = getIntent().getExtras();
+        if (null != extras)
+
+        {
+            protocolVal = extras.getString("Protocol");
+            medMonitorVal = extras.getString("MedMonitor");
+            subjectVal = extras.getString("Subject");
+            shotcodeVal = extras.getString("Shotcode");
+            question1Val = extras.getString("Question1");
+            question2Val = extras.getString("Question2");
+            question2Val = extras.getString("Question2");
+            locationVal = extras.getString("Location");
+            skinVal = extras.getString("Skin");
+            examVal = extras.getString("Exam");
+            commentVal = extras.getString("Comment");
+        }
+
+        subjectID = (TextView)
+
+                findViewById(R.id.txtsubjectID);
+
+        subjectID.setText(subjectVal);
+        shotcodeID = (TextView)
+
+                findViewById(R.id.txtShotcodeID);
+
+        shotcodeID.setText(shotcodeVal);
+
+
+    }
+
+    public void onRadioButtonClick(View v) {
+        if (radioGroup.getCheckedRadioButtonId() != -1 && radioGroup2.getCheckedRadioButtonId() != -1 && radioGroup3.getCheckedRadioButtonId() != -1) {
+            btn.setEnabled(true);
+        } else {
+            btn.setEnabled(false);
+        }
+    }
+    public void SaveTrial(View view) {
+
+        // read all radiobutton values to save
+        RadioButton rb = (RadioButton) radioGroup.findViewById(radioGroup.getCheckedRadioButtonId());
+        rb1val = (String)rb.getText();
+        RadioButton rb2 = (RadioButton) radioGroup2.findViewById(radioGroup2.getCheckedRadioButtonId());
+        rb1val = (String)rb2.getText();
+        RadioButton rb3 = (RadioButton) radioGroup3.findViewById(radioGroup3.getCheckedRadioButtonId());
+        rb1val = (String)rb.getText();
+
+        //get date and time
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");
+        String date = df.format(c.getTime());
+        SimpleDateFormat df1 = new SimpleDateFormat("HHmmss");
+        String time = df1.format(c.getTime());
+
+        //csv string to write to file SSADT_Data.csv
+        String saveStringVal = date + "," + time + "," + protocolVal + "," + medMonitorVal + "," + subjectVal + "," + shotcodeVal + "," + question1Val + "," + question2Val + "," + locationVal + "," + skinVal + "," + examVal + "," + commentVal + "," + rb1val + "," + rb2val +"," + rb3val + "\n";
+
+        try {
+            File savefile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "SSADT_Data.csv");
+            //check if file exists if not create new file else append to existing file
+            if (!savefile.exists())
+                savefile.createNewFile();
+            BufferedWriter writer = new BufferedWriter(new FileWriter(savefile, true));//append
+            writer.write(saveStringVal);
+            writer.close();
+        } catch (IOException e) {
+            Toast.makeText(this, "Unable to write: " + saveStringVal, Toast.LENGTH_LONG).show();
+        }
+
+        radioGroup.clearCheck();
+        radioGroup2.clearCheck();
+        radioGroup3.clearCheck();
+        finish();
+
     }
 }

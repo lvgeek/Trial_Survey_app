@@ -143,7 +143,7 @@ public class ExposureExam extends AppCompatActivity implements AdapterView.OnIte
      */
     public void showSaveNextTrial(View view) {
 
-        // read all spinner values to pass to Next Activity
+        // read all spinner values to save
         final Spinner location = (Spinner) findViewById((R.id.spnrlocationID));
         final String locationVal = String.valueOf(location.getSelectedItem());
         final Spinner skin = (Spinner) findViewById((R.id.spnrskinID));

@@ -24,13 +24,11 @@
             android:id="@+id/btnRunProtocol"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:height="80dp"
-            android:enabled="true"
             android:text="@string/btnRunProtocol"
-            android:textAlignment="center"
             android:textSize="40sp"
+            android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/Logo"
+            android:layout_marginBottom="30dp"
             android:onClick="showRunProtocol"/>
 
         <ImageView

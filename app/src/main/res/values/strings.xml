@@ -21,8 +21,14 @@
     <string name="txtskin">Skin Complaint:</string>
     <string name="txtexam">Skin Exam:</string>
     <string name="txtcomments">Comments:</string>
-    <string name="btnSaveEndSession">Save - End Session:&#10;goto Post Exposure Survey</string>
-    <string name="btnSaveNextTrial">Save - &#10;goto Next Trial</string>
+    <string name="btnSaveEndSession">Save - End Session:\ngoto Post Exposure Survey</string>
+    <string name="btnSaveNextTrial">Save Trial\ngoto Next Trial</string>
+    <string name="btnSavePostSurvey">Save</string>
+    <string name="txtPostQ1">Do you have any skin complaints (burning, blisters, redness, etc.)? </string>
+    <string name="txtPostQ2">Do you have any concerns from your experience with ADS? </string>
+    <string name="txtPostQ3">Do you have any medical questions or concerns from the ADS? </string>
+    <string name="radioNo">No</string>
+    <string name="radioYes">Yes</string>
 
 
 </resources>

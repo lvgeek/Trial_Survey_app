@@ -21,11 +21,164 @@
             android:id="@+id/tool_bar"
             layout="@layout/tool_bar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </include>
+            android:layout_height="wrap_content"></include>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Subject"
+            android:id="@+id/txtsubjectID"
+            android:layout_below="@+id/tool_bar"
+            android:paddingTop="50dp"
+            android:paddingLeft="50dp"
+            android:textSize="30sp"
+            android:enabled="false"
+            android:textColor="@color/material_grey_300" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="shotcode"
+            android:id="@+id/txtShotcodeID"
+            android:layout_below="@+id/tool_bar"
+            android:paddingTop="50dp"
+            android:paddingLeft="50dp"
+            android:textSize="30sp"
+            android:enabled="false"
+            android:layout_toRightOf="@+id/txtsubject"
+            android:textColor="@color/material_grey_300" />
 
 
+        <TextView
+            android:id="@+id/txtQ1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tool_bar"
+            android:paddingLeft="25dp"
+            android:paddingTop="125dp"
+            android:text="@string/txtPostQ1"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="30sp" />
 
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="25dp"
+            android:layout_below="@+id/tool_bar"
+            android:paddingTop="125dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="75dp">
+
+            <RadioButton
+                android:id="@+id/radioButton1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/radioNo"
+                android:textSize="30sp"
+                android:paddingRight="20dp"
+                android:onClick="onRadioButtonClick"/>
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/radioYes"
+                android:textSize="30sp"
+                android:onClick="onRadioButtonClick"/>
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/txtQ2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtQ1"
+            android:paddingLeft="25dp"
+            android:paddingTop="75dp"
+            android:text="@string/txtPostQ2"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="30sp" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="25dp"
+            android:layout_below="@+id/txtQ1"
+            android:paddingTop="75dp"
+            android:layout_marginRight="75dp"
+            android:layout_alignParentRight="true">
+
+            <RadioButton
+                android:id="@+id/radioButton3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/radioNo"
+                android:textSize="30sp"
+                android:paddingRight="20dp"
+                android:onClick="onRadioButtonClick"/>
+
+            <RadioButton
+                android:id="@+id/radioButton4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/radioYes"
+                android:textSize="30sp"
+                android:onClick="onRadioButtonClick"/>
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/txtQ3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtQ2"
+            android:paddingLeft="25dp"
+            android:paddingTop="75dp"
+            android:text="@string/txtPostQ3"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="30sp" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="25dp"
+            android:layout_below="@+id/txtQ2"
+            android:paddingTop="75dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="75dp">
+
+            <RadioButton
+                android:id="@+id/radioButton5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/radioNo"
+                android:textSize="30sp"
+                android:paddingRight="20dp"
+                android:onClick="onRadioButtonClick"/>
+
+            <RadioButton
+                android:id="@+id/radioButton6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/radioYes"
+                android:textSize="30sp"
+                android:onClick="onRadioButtonClick"/>
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dp"
+            android:onClick="SaveTrial"
+            android:text="@string/btnSavePostSurvey"
+            android:textSize="40sp" />
 
     </RelativeLayout>
 </android.support.v4.widget.DrawerLayout>
