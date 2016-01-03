@@ -21,33 +21,43 @@
             android:id="@+id/tool_bar"
             layout="@layout/tool_bar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></include>
+            android:layout_height="wrap_content">
+        </include>
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Subject"
-            android:id="@+id/txtsubjectID"
             android:layout_below="@+id/tool_bar"
-            android:paddingTop="50dp"
-            android:paddingLeft="50dp"
-            android:textSize="30sp"
-            android:enabled="false"
-            android:textColor="@color/material_grey_300" />
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="shotcode"
-            android:id="@+id/txtShotcodeID"
-            android:layout_below="@+id/tool_bar"
-            android:paddingTop="50dp"
-            android:paddingLeft="50dp"
-            android:textSize="30sp"
-            android:enabled="false"
-            android:layout_toRightOf="@+id/txtsubject"
-            android:textColor="@color/material_grey_300" />
+            <TextView
+                android:id="@+id/txtsubjectID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:text="Subject"
+                android:textSize="50sp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:paddingTop="30dp" />
 
+            <TextView
+                android:id="@+id/txtShotcodeID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:text="shotcode"
+                android:textSize="50sp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:paddingTop="30dp" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/txtQ1"
@@ -64,29 +74,29 @@
             android:id="@+id/radioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/tool_bar"
+            android:layout_marginRight="75dp"
             android:orientation="horizontal"
             android:paddingLeft="25dp"
-            android:layout_below="@+id/tool_bar"
-            android:paddingTop="125dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="75dp">
+            android:paddingTop="125dp">
 
             <RadioButton
                 android:id="@+id/radioButton1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/radioNo"
-                android:textSize="30sp"
+                android:onClick="onRadioButtonClick"
                 android:paddingRight="20dp"
-                android:onClick="onRadioButtonClick"/>
+                android:text="@string/radioNo"
+                android:textSize="30sp" />
 
             <RadioButton
                 android:id="@+id/radioButton2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClick"
                 android:text="@string/radioYes"
-                android:textSize="30sp"
-                android:onClick="onRadioButtonClick"/>
+                android:textSize="30sp" />
         </RadioGroup>
 
         <TextView
@@ -104,29 +114,29 @@
             android:id="@+id/radioGroup2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/txtQ1"
+            android:layout_marginRight="75dp"
             android:orientation="horizontal"
             android:paddingLeft="25dp"
-            android:layout_below="@+id/txtQ1"
-            android:paddingTop="75dp"
-            android:layout_marginRight="75dp"
-            android:layout_alignParentRight="true">
+            android:paddingTop="75dp">
 
             <RadioButton
                 android:id="@+id/radioButton3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/radioNo"
-                android:textSize="30sp"
+                android:onClick="onRadioButtonClick"
                 android:paddingRight="20dp"
-                android:onClick="onRadioButtonClick"/>
+                android:text="@string/radioNo"
+                android:textSize="30sp" />
 
             <RadioButton
                 android:id="@+id/radioButton4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClick"
                 android:text="@string/radioYes"
-                android:textSize="30sp"
-                android:onClick="onRadioButtonClick"/>
+                android:textSize="30sp" />
         </RadioGroup>
 
         <TextView
@@ -144,29 +154,29 @@
             android:id="@+id/radioGroup3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/txtQ2"
+            android:layout_marginRight="75dp"
             android:orientation="horizontal"
             android:paddingLeft="25dp"
-            android:layout_below="@+id/txtQ2"
-            android:paddingTop="75dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="75dp">
+            android:paddingTop="75dp">
 
             <RadioButton
                 android:id="@+id/radioButton5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/radioNo"
-                android:textSize="30sp"
+                android:onClick="onRadioButtonClick"
                 android:paddingRight="20dp"
-                android:onClick="onRadioButtonClick"/>
+                android:text="@string/radioNo"
+                android:textSize="30sp" />
 
             <RadioButton
                 android:id="@+id/radioButton6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClick"
                 android:text="@string/radioYes"
-                android:textSize="30sp"
-                android:onClick="onRadioButtonClick"/>
+                android:textSize="30sp" />
         </RadioGroup>
 
         <Button

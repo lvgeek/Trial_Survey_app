@@ -63,9 +63,7 @@ public class PostExposureSurvey extends AppCompatActivity {
 
 
         Bundle extras = getIntent().getExtras();
-        if (null != extras)
-
-        {
+        if (null != extras){
             protocolVal = extras.getString("Protocol");
             medMonitorVal = extras.getString("MedMonitor");
             subjectVal = extras.getString("Subject");
@@ -79,17 +77,10 @@ public class PostExposureSurvey extends AppCompatActivity {
             commentVal = extras.getString("Comment");
         }
 
-        subjectID = (TextView)
-
-                findViewById(R.id.txtsubjectID);
-
+        subjectID = (TextView) findViewById(R.id.txtsubjectID);
         subjectID.setText(subjectVal);
-        shotcodeID = (TextView)
-
-                findViewById(R.id.txtShotcodeID);
-
+        shotcodeID = (TextView) findViewById(R.id.txtShotcodeID);
         shotcodeID.setText(shotcodeVal);
-
 
     }
 
