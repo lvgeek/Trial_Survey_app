@@ -17,6 +17,7 @@
     <string name="pmtShotcode">Shotcode:</string>
     <string name="pmtmedMonitor">Medical Monitor:</string>
     <string name="title_activity_exposure_exam">Interim Exposure Exam</string>
+    <string name="title_activity_post_exposure">Post Exposure Exam</string>
     <string name="txtlocation">Location:</string>
     <string name="txtskin">Skin Complaint:</string>
     <string name="txtexam">Skin Exam:</string>
@@ -29,6 +30,7 @@
     <string name="txtPostQ3">Do you have any medical questions or concerns from the ADS? </string>
     <string name="radioNo">No</string>
     <string name="radioYes">Yes</string>
+    <string name="txtnotes">Notes</string>
 
 
 </resources>

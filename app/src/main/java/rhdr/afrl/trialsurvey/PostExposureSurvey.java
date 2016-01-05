@@ -5,7 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -35,6 +37,8 @@ public class PostExposureSurvey extends AppCompatActivity {
     String rb1val, rb2val, rb3val;
     Button btn;
     TextView subjectID;
+    EditText notes;
+    TextView notesID;
     private Toolbar toolbar;
     private RadioGroup radioGroup, radioGroup2, radioGroup3;
 
@@ -46,9 +50,15 @@ public class PostExposureSurvey extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_white);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
         btn = (Button) findViewById(R.id.btnSave);
         btn.setEnabled(false);
+
+        notes = (EditText) findViewById(R.id.txtnotes);
+        notes.setVisibility(View.INVISIBLE);
+        notesID = (TextView) findViewById(R.id.txtnotes);
+        notesID.setVisibility(View.INVISIBLE);
 
         /* Initialize Radio Group and attach click handler */
         radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
@@ -81,6 +91,13 @@ public class PostExposureSurvey extends AppCompatActivity {
     }
 
     public void onRadioButtonClick(View v) {
+        if (radioGroup.getCheckedRadioButtonId() == R.id.radioButton2 || radioGroup2.getCheckedRadioButtonId() == R.id.radioButton4 || radioGroup3.getCheckedRadioButtonId() == R.id.radioButton6) {
+            notes.setVisibility(View.VISIBLE);
+            notesID.setVisibility(View.VISIBLE);
+        } else {
+            notes.setVisibility(View.INVISIBLE);
+            notesID.setVisibility(View.INVISIBLE);
+        }
         if (radioGroup.getCheckedRadioButtonId() != -1 && radioGroup2.getCheckedRadioButtonId() != -1 && radioGroup3.getCheckedRadioButtonId() != -1) {
             btn.setEnabled(true);
         } else {
@@ -105,7 +122,7 @@ public class PostExposureSurvey extends AppCompatActivity {
         String time = df1.format(c.getTime());
 
         //csv string to write to file SSADT_Data.csv
-        String saveStringVal = date + "," + time + "," + protocolVal + "," + medMonitorVal + "," + subjectVal + "," + shotcodeVal + "," + question1Val + "," + question2Val + "," + locationVal + "," + skinVal + "," + examVal + "," + commentVal + "," + rb1val + "," + rb2val +"," + rb3val + "\n";
+        String saveStringVal = date + "," + time + "," + protocolVal + "," + medMonitorVal + "," + subjectVal + "," + shotcodeVal + "," + question1Val + "," + question2Val + "," + locationVal + "," + skinVal + "," + examVal + "," + commentVal + "," + rb1val + "," + rb2val +"," + rb3val + "," + notes +"\n";
 
         try {
             File savefile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "SSADT_Data.csv");

@@ -96,7 +96,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtQ1"
             android:paddingLeft="25dp"
-            android:paddingTop="75dp"
+            android:paddingTop="25dp"
             android:text="@string/txtPostQ2"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="30sp"
@@ -112,7 +112,7 @@
             android:layout_marginRight="25dp"
             android:orientation="horizontal"
             android:paddingLeft="25dp"
-            android:paddingTop="75dp">
+            android:paddingTop="25dp">
 
             <RadioButton
                 android:id="@+id/radioButton3"
@@ -138,7 +138,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtQ2"
             android:paddingLeft="25dp"
-            android:paddingTop="75dp"
+            android:paddingTop="25dp"
             android:text="@string/txtPostQ3"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="30sp"
@@ -154,7 +154,7 @@
             android:layout_marginRight="25dp"
             android:orientation="horizontal"
             android:paddingLeft="25dp"
-            android:paddingTop="75dp">
+            android:paddingTop="25dp">
 
             <RadioButton
                 android:id="@+id/radioButton5"
@@ -184,6 +184,32 @@
             android:onClick="SaveTrial"
             android:text="@string/btnSavePostSurvey"
             android:textSize="40sp" />
+
+        <TextView
+            android:id="@+id/txt4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:clickable="false"
+            android:text="@string/txtnotes"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_below="@+id/txtQ3"
+            android:layout_alignParentStart="false"
+            android:paddingTop="25dp" />
+
+        <EditText
+            android:id="@+id/txtnotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minLines="3"
+            android:layout_alignTop="@+id/txt4"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_toRightOf="@+id/txt4"
+            android:lines="3" />
 
     </RelativeLayout>
 </android.support.v4.widget.DrawerLayout>

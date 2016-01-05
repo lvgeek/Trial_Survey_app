@@ -40,13 +40,21 @@
             android:name=".ExposureExam"
             android:label="@string/title_activity_exposure_exam"
             android:noHistory="true"
-            android:parentActivityName=".MainActivity"
+
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="rhdr.afrl.trialsurvey.MainActivity" />
+                android:value="rhdr.afrl.trialsurvey.RunTrialActivity" />
         </activity>
-        <activity android:name=".PostExposureSurvey"></activity>
+        <activity
+            android:name=".PostExposureSurvey"
+            android:label="@string/title_activity_post_exposure"
+            android:noHistory="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="rhdr.afrl.trialsurvey.ExposureExam" />
+        </activity>
     </application>
 
 </manifest>
