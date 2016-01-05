@@ -139,6 +139,7 @@ public class PostExposureSurvey extends AppCompatActivity {
         radioGroup.clearCheck();
         radioGroup2.clearCheck();
         radioGroup3.clearCheck();
+        notes.setText("");
         finish();
 
     }

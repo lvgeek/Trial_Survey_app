@@ -6,7 +6,9 @@
     android:height="60dp"
     android:background="@color/colorPrimary"
     android:elevation="4dp"
-    app:titleTextAppearance="@style/ToolbarTitle">
+    app:titleTextAppearance="@style/ToolbarTitle"
+    android:paddingLeft="10dp"
+    android:textAlignment="center">
 
 </android.support.v7.widget.Toolbar>
 

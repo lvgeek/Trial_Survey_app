@@ -86,7 +86,8 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_toRightOf="@+id/txtcomment"
-            android:minLines="3" />
+            android:minLines="3"
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/txtlocation"
