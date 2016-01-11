@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.Toast;
 
@@ -30,6 +31,7 @@ public class RunTrialActivity extends AppCompatActivity implements SeekBar.OnSee
     String seekBarval;
     String seekBar2val;
     SeekBar seekBar, seekBar2;
+    RadioGroup radioGroup1;
     Button btn;
     int seekchng, seekchng2;
     Random rand = new Random();
@@ -68,6 +70,12 @@ public class RunTrialActivity extends AppCompatActivity implements SeekBar.OnSee
             subjectVal = extras.getString("Subject");
             shotcodeVal = extras.getString("Shotcode");
         }
+        /* Initialize Radio Group and attach click handler */
+        radioGroup1 = (RadioGroup) findViewById(R.id.radioGroup);
+        radioGroup1.clearCheck();
+
+        if
+
 
     }
     @Override

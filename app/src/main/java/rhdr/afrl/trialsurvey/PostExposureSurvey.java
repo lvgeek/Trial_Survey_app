@@ -65,7 +65,7 @@ public class PostExposureSurvey extends AppCompatActivity {
         radioGroup.clearCheck();
         radioGroup2 = (RadioGroup) findViewById(R.id.radioGroup2);
         radioGroup2.clearCheck();
-        radioGroup3 = (RadioGroup) findViewById(R.id.radioGroup3);
+        radioGroup3 = (RadioGroup) findViewById(R.id.radioGroup1);
         radioGroup3.clearCheck();
 
 

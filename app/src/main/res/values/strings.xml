@@ -31,6 +31,10 @@
     <string name="radioNo">No</string>
     <string name="radioYes">Yes</string>
     <string name="txtnotes">Notes</string>
+    <string name="txtQuestion3">How Many Spots Did You Feel?</string>
+    <string name="radio1">1</string>
+    <string name="radio2">2</string>
+    <string name="radio3">3</string>
 
 
 </resources>
