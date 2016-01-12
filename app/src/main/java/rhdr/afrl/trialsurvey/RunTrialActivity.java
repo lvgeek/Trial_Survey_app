@@ -79,7 +79,7 @@ public class RunTrialActivity extends AppCompatActivity implements SeekBar.OnSee
         txtQ3 = (TextView) findViewById(R.id.txtQ3);
 
         /* Initialize Radio Group*/
-        radioGroup1 = (RadioGroup) findViewById(R.id.radioGroup);
+        radioGroup1 = (RadioGroup) findViewById(R.id.radioGroup1);
         radioGroup1.clearCheck();
 
         shot = Integer.parseInt(shotcodeVal);
