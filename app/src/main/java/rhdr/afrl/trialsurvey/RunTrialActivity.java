@@ -76,13 +76,14 @@ public class RunTrialActivity extends AppCompatActivity implements SeekBar.OnSee
             shotcodeVal = extras.getString("Shotcode");
         }
 
-        txtQ3 = (TextView) findViewById(R.id.txtQ3);
+        txtQ3 = (TextView) findViewById(R.id.txtQuestion3);
 
         /* Initialize Radio Group*/
         radioGroup1 = (RadioGroup) findViewById(R.id.radioGroup1);
         radioGroup1.clearCheck();
 
-        shot = Integer.parseInt(shotcodeVal);
+        String[] parts = shotcodeVal.split(" ");
+        shot = Integer.parseInt(parts[1]);
 
         if (shot >= 13) {
             txtQ3.setVisibility(View.VISIBLE);
