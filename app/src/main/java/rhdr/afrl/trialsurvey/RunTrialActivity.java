@@ -39,7 +39,7 @@ public class RunTrialActivity extends AppCompatActivity implements SeekBar.OnSee
     Button btn;
     int seekchng, seekchng2;
     int shot = 0;
-    int shotSet = 0;
+    int shotSet;
     Random rand = new Random();
 
     private Toolbar toolbar;
@@ -89,9 +89,11 @@ public class RunTrialActivity extends AppCompatActivity implements SeekBar.OnSee
         if (shot >= 13) {
             txtQ3.setVisibility(View.VISIBLE);
             radioGroup1.setVisibility(View.VISIBLE);
+            shotSet = 0;
         } else {
             txtQ3.setVisibility(View.INVISIBLE);
             radioGroup1.setVisibility(View.INVISIBLE);
+            shotSet = 1;
         }
 
     }
@@ -122,9 +124,9 @@ public class RunTrialActivity extends AppCompatActivity implements SeekBar.OnSee
 
     public void onRadioButtonClick(View v) {
         if (radioGroup1.getCheckedRadioButtonId() != -1) {
-            shotSet = 0;
-        } else {
             shotSet = 1;
+        } else {
+            shotSet = 0;
         }
         if (seekchng != 0 && seekchng2 != 0 && shotSet != 0) {
             btn.setEnabled(true);
