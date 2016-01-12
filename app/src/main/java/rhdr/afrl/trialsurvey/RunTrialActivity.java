@@ -7,8 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedWriter;
@@ -30,10 +32,13 @@ public class RunTrialActivity extends AppCompatActivity implements SeekBar.OnSee
     String time;
     String seekBarval;
     String seekBar2val;
+    String spots;
     SeekBar seekBar, seekBar2;
     RadioGroup radioGroup1;
+    TextView txtQ3;
     Button btn;
     int seekchng, seekchng2;
+    int shot = 0;
     Random rand = new Random();
 
     private Toolbar toolbar;
@@ -50,13 +55,13 @@ public class RunTrialActivity extends AppCompatActivity implements SeekBar.OnSee
         btn = (Button) findViewById(R.id.btnSave);
         btn.setEnabled(false);
 
-        seekBar = (SeekBar)findViewById(R.id.seekBar);
+        seekBar = (SeekBar) findViewById(R.id.seekBar);
         seekBar.setProgress(50);
- //       seekBar.setProgress(rand.nextInt(seekBar.getMax()));
+        //       seekBar.setProgress(rand.nextInt(seekBar.getMax()));
         seekBar.setOnSeekBarChangeListener(this);
-        seekBar2 = (SeekBar)findViewById(R.id.seekBar2);
+        seekBar2 = (SeekBar) findViewById(R.id.seekBar2);
         seekBar2.setProgress(50);
- //       seekBar2.setProgress(rand.nextInt(seekBar2.getMax()));
+        //       seekBar2.setProgress(rand.nextInt(seekBar2.getMax()));
         seekBar2.setOnSeekBarChangeListener(this);
 
         seekchng = 0;
@@ -70,28 +75,35 @@ public class RunTrialActivity extends AppCompatActivity implements SeekBar.OnSee
             subjectVal = extras.getString("Subject");
             shotcodeVal = extras.getString("Shotcode");
         }
-        /* Initialize Radio Group and attach click handler */
+
+        txtQ3 = (TextView) findViewById(R.id.txtQ3);
+
+        /* Initialize Radio Group*/
         radioGroup1 = (RadioGroup) findViewById(R.id.radioGroup);
         radioGroup1.clearCheck();
 
-        if
+        shot = Integer.parseInt(shotcodeVal);
 
+        if (shot >= 13) {
+            txtQ3.setVisibility(View.VISIBLE);
+            radioGroup1.setVisibility(View.VISIBLE);
+        } else {
+            txtQ3.setVisibility(View.INVISIBLE);
+            radioGroup1.setVisibility(View.INVISIBLE);
+        }
 
     }
+
     @Override
-    public void onProgressChanged(SeekBar bar, int progress, boolean fromUser)
-    {
-        if (bar.equals(seekBar))
-        {
+    public void onProgressChanged(SeekBar bar, int progress, boolean fromUser) {
+        if (bar.equals(seekBar)) {
             seekchng = 1;
-        }
-        else if (bar.equals(seekBar2))
-        {
+        } else if (bar.equals(seekBar2)) {
             seekchng2 = 1;
         }
-        if (seekchng!=0 && seekchng2!=0) {
+        if (seekchng != 0 && seekchng2 != 0) {
             btn.setEnabled(true);
-        }else {
+        } else {
             btn.setEnabled(false);
         }
     }
@@ -114,18 +126,28 @@ public class RunTrialActivity extends AppCompatActivity implements SeekBar.OnSee
         //read both seekbars
 
         seekBarval = String.valueOf((float) seekBar.getProgress() / seekBar.getMax());
-        seekBar2val = String.valueOf((float) seekBar2.getProgress()/ seekBar2.getMax());
+        seekBar2val = String.valueOf((float) seekBar2.getProgress() / seekBar2.getMax());
+
+        if (shot >= 13) {
+            RadioButton rb = (RadioButton) radioGroup1.findViewById(radioGroup1.getCheckedRadioButtonId());
+            spots = (String)rb.getText();
+        } else {
+            spots = "0";
+        }
+
 
         Intent intent = new Intent(this, ExposureExam.class);
         intent.putExtra("Protocol", protocolVal);
         intent.putExtra("MedMonitor", medMonitorVal);
-        intent.putExtra("Subject",subjectVal);
-        intent.putExtra("Shotcode",shotcodeVal);
-        intent.putExtra("Question1",seekBarval);
-        intent.putExtra("Question2",seekBar2val);
+        intent.putExtra("Subject", subjectVal);
+        intent.putExtra("Shotcode", shotcodeVal);
+        intent.putExtra("Question1", seekBarval);
+        intent.putExtra("Question2", seekBar2val);
+        intent.putExtra("Spots",spots);
         startActivity(intent);
 
         seekBar.setProgress(50);
         seekBar2.setProgress(50);
+        radioGroup1.clearCheck();
     }
 }

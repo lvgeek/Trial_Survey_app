@@ -30,6 +30,7 @@ public class PostExposureSurvey extends AppCompatActivity {
     String shotcodeVal;
     String question1Val;
     String question2Val;
+    String spotsVal;
     String locationVal;
     String skinVal;
     String examVal;
@@ -78,6 +79,7 @@ public class PostExposureSurvey extends AppCompatActivity {
             question1Val = extras.getString("Question1");
             question2Val = extras.getString("Question2");
             question2Val = extras.getString("Question2");
+            spotsVal = extras.getString("Spots");
             locationVal = extras.getString("Location");
             skinVal = extras.getString("Skin");
             examVal = extras.getString("Exam");
@@ -122,7 +124,7 @@ public class PostExposureSurvey extends AppCompatActivity {
         String time = df1.format(c.getTime());
 
         //csv string to write to file SSADT_Data.csv
-        String saveStringVal = date + "," + time + "," + protocolVal + "," + medMonitorVal + "," + subjectVal + "," + shotcodeVal + "," + question1Val + "," + question2Val + "," + locationVal + "," + skinVal + "," + examVal + "," + commentVal + "," + rb1val + "," + rb2val +"," + rb3val + "," + notes +"\n";
+        String saveStringVal = date + "," + time + "," + protocolVal + "," + medMonitorVal + "," + subjectVal + "," + shotcodeVal + "," + question1Val + "," + question2Val + "," + spotsVal + "," + locationVal + "," + skinVal + "," + examVal + "," + commentVal + "," + rb1val + "," + rb2val +"," + rb3val + "," + notes +"\n";
 
         try {
             File savefile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "SSADT_Data.csv");

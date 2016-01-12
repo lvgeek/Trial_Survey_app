@@ -34,6 +34,7 @@ public class ExposureExam extends AppCompatActivity implements AdapterView.OnIte
     String shotcodeVal;
     String question1Val;
     String question2Val;
+    String spotsVal;
     String[] locations;
     String[] skins;
     String[] exams;
@@ -115,6 +116,7 @@ public class ExposureExam extends AppCompatActivity implements AdapterView.OnIte
             shotcodeVal = extras.getString("Shotcode");
             question1Val = extras.getString("Question1");
             question2Val = extras.getString("Question2");
+            spotsVal = extras.getString("Spots");
         }
 
 
@@ -160,7 +162,7 @@ public class ExposureExam extends AppCompatActivity implements AdapterView.OnIte
         String time = df1.format(c.getTime());
 
         //csv string to write to file SSADT_Data.csv
-        String saveStringVal = date + "," + time + "," + protocolVal + "," + medMonitorVal + "," + subjectVal + "," + shotcodeVal + "," + question1Val + "," + question2Val + "," + locationVal + "," + skinVal + "," + examVal + "," + commentVal + "\n";
+        String saveStringVal = date + "," + time + "," + protocolVal + "," + medMonitorVal + "," + subjectVal + "," + shotcodeVal + "," + question1Val + "," + question2Val + "," + spotsVal + "," + locationVal + "," + skinVal + "," + examVal + "," + commentVal + "\n";
 
         try {
             File savefile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "SSADT_Data.csv");
@@ -203,6 +205,7 @@ public class ExposureExam extends AppCompatActivity implements AdapterView.OnIte
         intent.putExtra("Shotcode", shotcodeVal);
         intent.putExtra("Question1", question1Val);
         intent.putExtra("Question2", question2Val);
+        intent.putExtra("Spots",spotsVal);
         intent.putExtra("Location", locationVal);
         intent.putExtra("Skin", skinVal);
         intent.putExtra("Exam", examVal);
