@@ -58,7 +58,7 @@ public class PostExposureSurvey extends AppCompatActivity {
 
         notes = (EditText) findViewById(R.id.txtnotes);
         notes.setVisibility(View.INVISIBLE);
-        notesID = (TextView) findViewById(R.id.txtnotes);
+        notesID = (TextView) findViewById(R.id.txt4);
         notesID.setVisibility(View.INVISIBLE);
 
         /* Initialize Radio Group and attach click handler */
