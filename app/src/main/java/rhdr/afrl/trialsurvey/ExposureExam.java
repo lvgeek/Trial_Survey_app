@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedWriter;
@@ -38,6 +39,8 @@ public class ExposureExam extends AppCompatActivity implements AdapterView.OnIte
     String[] locations;
     String[] skins;
     String[] exams;
+    TextView txtSubj;
+    TextView txtShot;
     Spinner spnrlocationID;
     Spinner spnrskinID;
     Spinner spnrexamID;
@@ -118,7 +121,10 @@ public class ExposureExam extends AppCompatActivity implements AdapterView.OnIte
             question2Val = extras.getString("Question2");
             spotsVal = extras.getString("Spots");
         }
-
+        txtSubj = (TextView) findViewById(R.id.txtSub);
+        txtSubj.setText(subjectVal);
+        txtShot = (TextView) findViewById(R.id.txtShot);
+        txtShot.setText(shotcodeVal);
 
     }
 

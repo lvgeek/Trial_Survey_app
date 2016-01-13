@@ -23,6 +23,38 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></include>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Subject"
+            android:id="@+id/txtSub"
+            android:layout_below="@+id/tool_bar"
+            android:layout_toLeftOf="@+id/txtShot"
+            android:height="80dp"
+            android:textSize="30dp"
+            android:textColor="#ffffff"
+            android:textAlignment="center"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:background="#000000"
+            android:gravity="center_vertical" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Shotcode"
+            android:id="@+id/txtShot"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/tool_bar"
+            android:height="80dp"
+            android:textSize="30dp"
+            android:textColor="#ffffff"
+            android:textAlignment="center"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:background="#000000"
+            android:gravity="center_vertical" />
+
         <Spinner
             android:id="@+id/spnrlocationID"
             style="@style/TextAppearance.AppCompat.Medium"
