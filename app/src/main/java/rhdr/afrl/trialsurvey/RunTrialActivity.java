@@ -28,13 +28,13 @@ public class RunTrialActivity extends AppCompatActivity implements SeekBar.OnSee
     String medMonitorVal;
     String subjectVal;
     String shotcodeVal;
-    String date;
-    String time;
     String seekBarval;
     String seekBar2val;
     String spots;
     SeekBar seekBar, seekBar2;
     RadioGroup radioGroup1;
+    TextView txtSubj;
+    TextView txtShot;
     TextView txtQ3;
     Button btn;
     int seekchng, seekchng2;
@@ -77,6 +77,10 @@ public class RunTrialActivity extends AppCompatActivity implements SeekBar.OnSee
             shotcodeVal = extras.getString("Shotcode");
         }
 
+        txtSubj = (TextView) findViewById(R.id.txtSub);
+        txtSubj.setText(subjectVal);
+        txtShot = (TextView) findViewById(R.id.txtShot);
+        txtShot.setText(shotcodeVal);
         txtQ3 = (TextView) findViewById(R.id.txtQuestion3);
 
         /* Initialize Radio Group*/

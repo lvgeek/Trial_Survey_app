@@ -35,6 +35,7 @@ public class PostExposureSurvey extends AppCompatActivity {
     String skinVal;
     String examVal;
     String commentVal;
+    String notesval;
     String rb1val, rb2val, rb3val;
     Button btn;
     TextView subjectID;
@@ -115,6 +116,7 @@ public class PostExposureSurvey extends AppCompatActivity {
         rb2val = (String)rb2.getText();
         RadioButton rb3 = (RadioButton) radioGroup3.findViewById(radioGroup3.getCheckedRadioButtonId());
         rb3val = (String)rb3.getText();
+        notesval = notes.getText().toString();
 
         //get date and time
         Calendar c = Calendar.getInstance();
@@ -124,7 +126,7 @@ public class PostExposureSurvey extends AppCompatActivity {
         String time = df1.format(c.getTime());
 
         //csv string to write to file SSADT_Data.csv
-        String saveStringVal = date + "," + time + "," + protocolVal + "," + medMonitorVal + "," + subjectVal + "," + shotcodeVal + "," + question1Val + "," + question2Val + "," + spotsVal + "," + locationVal + "," + skinVal + "," + examVal + "," + commentVal + "," + rb1val + "," + rb2val +"," + rb3val + "," + notes +"\n";
+        String saveStringVal = date + "," + time + "," + protocolVal + "," + medMonitorVal + "," + subjectVal + "," + shotcodeVal + "," + question1Val + "," + question2Val + "," + spotsVal + "," + locationVal + "," + skinVal + "," + examVal + "," + commentVal + "," + rb1val + "," + rb2val +"," + rb3val + "," + notesval +"\n";
 
         try {
             File savefile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "SSADT_Data.csv");
