@@ -118,7 +118,7 @@ public class PostExposureSurvey extends AppCompatActivity {
         rb3val = (String)rb3.getText();
         notesval = notes.getText().toString();
         notesval = notesval.replaceAll(",", " ");
-        notesval = notesval.replaceAll("//n", " ");
+        notesval = notesval.replaceAll("\\n", " ");
 
         //get date and time
         Calendar c = Calendar.getInstance();
