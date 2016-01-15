@@ -166,7 +166,8 @@ public class ExposureExam extends AppCompatActivity implements AdapterView.OnIte
         exam = (Spinner) findViewById((R.id.spnrexamID));
         examVal = String.valueOf(exam.getSelectedItem());
         commentVal = comment.getText().toString();
-        commentVal = commentVal.replace(",", " ");
+        commentVal = commentVal.replaceAll(",", " ");
+        commentVal = commentVal.replaceAll("//n", " ");
 
         //get date and time
         Calendar c = Calendar.getInstance();
@@ -212,6 +213,7 @@ public class ExposureExam extends AppCompatActivity implements AdapterView.OnIte
         examVal = String.valueOf(exam.getSelectedItem());
         commentVal = comment.getText().toString();
         commentVal = commentVal.replace(",", " ");
+        commentVal = commentVal.replaceAll("//n", " ");
 
         Intent intent = new Intent(this, PostExposureSurvey.class);
         intent.putExtra("Protocol", protocolVal);

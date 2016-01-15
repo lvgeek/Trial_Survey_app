@@ -117,7 +117,8 @@ public class PostExposureSurvey extends AppCompatActivity {
         RadioButton rb3 = (RadioButton) radioGroup3.findViewById(radioGroup3.getCheckedRadioButtonId());
         rb3val = (String)rb3.getText();
         notesval = notes.getText().toString();
-        notesval = notesval.replace(",", " ");
+        notesval = notesval.replaceAll(",", " ");
+        notesval = notesval.replaceAll("//n", " ");
 
         //get date and time
         Calendar c = Calendar.getInstance();
