@@ -117,6 +117,7 @@ public class PostExposureSurvey extends AppCompatActivity {
         RadioButton rb3 = (RadioButton) radioGroup3.findViewById(radioGroup3.getCheckedRadioButtonId());
         rb3val = (String)rb3.getText();
         notesval = notes.getText().toString();
+        notesval = notesval.replace(",", " ");
 
         //get date and time
         Calendar c = Calendar.getInstance();
@@ -131,8 +132,13 @@ public class PostExposureSurvey extends AppCompatActivity {
         try {
             File savefile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "SSADT_Data.csv");
             //check if file exists if not create new file else append to existing file
-            if (!savefile.exists())
+            if (!savefile.exists()) {
                 savefile.createNewFile();
+                String hdrStringVal = "Date,Time,Protocol,Medical,Subject,Shotcode,Question1,Question2,NumSpots,Location,Skincompaint,SkinExam,Comments,PostQ1,PostQ2,PostQ3,PostNotes \n";
+                BufferedWriter writer = new BufferedWriter(new FileWriter(savefile, true));//append
+                writer.write(hdrStringVal);
+                writer.close();
+            }
             BufferedWriter writer = new BufferedWriter(new FileWriter(savefile, true));//append
             writer.write(saveStringVal);
             writer.close();

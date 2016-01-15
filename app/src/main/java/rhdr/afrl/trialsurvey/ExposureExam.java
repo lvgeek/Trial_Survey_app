@@ -39,6 +39,13 @@ public class ExposureExam extends AppCompatActivity implements AdapterView.OnIte
     String[] locations;
     String[] skins;
     String[] exams;
+    Spinner location;
+    String locationVal;
+    Spinner skin;
+    String skinVal;
+    Spinner exam;
+    String examVal;
+    String commentVal;
     TextView txtSubj;
     TextView txtShot;
     Spinner spnrlocationID;
@@ -152,13 +159,14 @@ public class ExposureExam extends AppCompatActivity implements AdapterView.OnIte
     public void showSaveNextTrial(View view) {
 
         // read all spinner values to save
-        final Spinner location = (Spinner) findViewById((R.id.spnrlocationID));
-        final String locationVal = String.valueOf(location.getSelectedItem());
-        final Spinner skin = (Spinner) findViewById((R.id.spnrskinID));
-        final String skinVal = String.valueOf(skin.getSelectedItem());
-        final Spinner exam = (Spinner) findViewById((R.id.spnrexamID));
-        final String examVal = String.valueOf(exam.getSelectedItem());
-        final String commentVal = comment.getText().toString();
+        location = (Spinner) findViewById((R.id.spnrlocationID));
+        locationVal = String.valueOf(location.getSelectedItem());
+        skin = (Spinner) findViewById((R.id.spnrskinID));
+        skinVal = String.valueOf(skin.getSelectedItem());
+        exam = (Spinner) findViewById((R.id.spnrexamID));
+        examVal = String.valueOf(exam.getSelectedItem());
+        commentVal = comment.getText().toString();
+        commentVal = commentVal.replace(",", " ");
 
         //get date and time
         Calendar c = Calendar.getInstance();
@@ -196,13 +204,14 @@ public class ExposureExam extends AppCompatActivity implements AdapterView.OnIte
     public void showSaveEndSession(View view) {
 
         // read all spinner values to pass to Next Activity
-        final Spinner location = (Spinner) findViewById((R.id.spnrlocationID));
-        final String locationVal = String.valueOf(location.getSelectedItem());
-        final Spinner skin = (Spinner) findViewById((R.id.spnrskinID));
-        final String skinVal = String.valueOf(skin.getSelectedItem());
-        final Spinner exam = (Spinner) findViewById((R.id.spnrexamID));
-        final String examVal = String.valueOf(exam.getSelectedItem());
-        final String commentVal = comment.getText().toString();
+        location = (Spinner) findViewById((R.id.spnrlocationID));
+        locationVal = String.valueOf(location.getSelectedItem());
+        skin = (Spinner) findViewById((R.id.spnrskinID));
+        skinVal = String.valueOf(skin.getSelectedItem());
+        exam = (Spinner) findViewById((R.id.spnrexamID));
+        examVal = String.valueOf(exam.getSelectedItem());
+        commentVal = comment.getText().toString();
+        commentVal = commentVal.replace(",", " ");
 
         Intent intent = new Intent(this, PostExposureSurvey.class);
         intent.putExtra("Protocol", protocolVal);
